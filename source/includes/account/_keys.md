@@ -41,7 +41,6 @@ handleKeyGenerate = (keyName, keyType, keySize) => () => {
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
-
 };
 ```
 

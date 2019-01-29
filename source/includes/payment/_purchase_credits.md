@@ -179,7 +179,35 @@ Python code here.
 ```
 
 ```javascript
-Javascript code here.
+handleDashPayment = (credits) => () => {
+
+    let data = new FormData();
+    data.append("credit_value", sourceNetwork);
+
+    let xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function () {
+
+        if (xhr.readyState === 4) {
+
+            let result = JSON.parse(xhr.responseText);
+
+            if (result.code === 200) {
+                console.log(result);
+            }
+
+            else {
+                // Error handling.
+            }
+        }
+    }.bind(this));
+
+    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/create/dash");
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
+    xhr.send(data);
+};
 ```
 
 > Example Response (200)
@@ -215,7 +243,32 @@ Python code here.
 ```
 
 ```javascript
-Javascript code here.
+handleDepositAddress = (type) => () => {
+
+    let xhr_stat = new XMLHttpRequest();
+    xhr_stat.withCredentials = false;
+
+    xhr_stat.addEventListener("readystatechange", function () {
+
+        if (xhr_stat.readyState === 4) {
+
+            let result = JSON.parse(xhr_stat.responseText);
+
+            if (result.code === 200) {
+                console.log(result);
+            }
+
+            else {
+                // Error handling.
+            }
+        }
+    }.bind(this));
+
+    xhr_stat.open("GET", "https://dev.api.temporal.cloud/v2/payments/deposit/address/" + type);
+    xhr_stat.setRequestHeader("Cache-Control", "no-cache");
+    xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
+    xhr_stat.send();
+};
 ```
 
 > Example Response (200)

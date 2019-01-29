@@ -62,7 +62,30 @@ Python code here.
 ```
 
 ```javascript
-Javascript code here.
+let data = new FormData();
+let xhr = new XMLHttpRequest();
+xhr.withCredentials = false;
+
+xhr.addEventListener("readystatechange", function () {
+
+    if (xhr.readyState === 4) {
+
+        let result = JSON.parse(xhr.responseText);
+
+        if (result.code === 200) {
+            console.log(result);
+        }
+
+        else {
+            // Error handling.
+        }
+    }
+}.bind(this));
+
+xhr.open("GET", "https://dev.api.temporal.cloud/v2/auth/refresh");
+xhr.setRequestHeader("Cache-Control", "no-cache");
+xhr.setRequestHeader("Authorization", "Bearer " + Session.get('token'));
+xhr.send(data);
 ```
 
 > Example Response (200)

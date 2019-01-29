@@ -11,7 +11,34 @@ Python code here.
 ```
 
 ```javascript
-Javascript code here.
+handleForgotUsername = (email) => () => {
+
+    let data = new FormData();
+    data.append("email_address", email);
+
+    let xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function () {
+
+        if (xhr.readyState === 4) {
+
+            let result = JSON.parse(xhr.responseText);
+
+            if (result.code === 200) {
+                console.log(result);
+            }
+
+            else {
+                // Error handling.
+            }
+        }
+    }.bind(this));
+
+    xhr.open("POST", "https://dev.api.temporal.cloud/v2/forgot/username");
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.send(data);
+};
 ```
 
 > Example Response (200)
@@ -25,6 +52,10 @@ Javascript code here.
 `https://dev.api.temporal.cloud/v2/forgot/username`
 
 Sends a reminder to the associated e-mail address with the given username. Your account must have an activated e-mail address for this call to execute.
+
+<aside class="success">
+Does not require a JWT for authentication. Account must have an activated e-mail address.
+</aside>
 
 ### Parameters
 
@@ -43,7 +74,34 @@ Python code here.
 ```
 
 ```javascript
-Javascript code here.
+handleForgotPassword = (email) => () => {
+
+    let data = new FormData();
+    data.append("email_address", email);
+
+    let xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function () {
+
+        if (xhr.readyState === 4) {
+
+            let result = JSON.parse(xhr.responseText);
+
+            if (result.code === 200) {
+                console.log(result);
+            }
+
+            else {
+                // Error handling.
+            }
+        }
+    }.bind(this));
+
+    xhr.open("POST", "https://dev.api.temporal.cloud/v2/forgot/password");
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.send(data);
+};
 ```
 
 > Example Response (200)
@@ -57,6 +115,10 @@ Javascript code here.
 `https://dev.api.temporal.cloud/v2/forgot/password`
 
 Resets the password for the account with the associated email, sending it via email.
+
+<aside class="success">
+Does not require a JWT for authentication. Account must have an activated e-mail address.
+</aside>
 
 ### Parameters
 
@@ -75,7 +137,35 @@ Python code here.
 ```
 
 ```javascript
-Javascript code here.
+handleForgotEmail => () => {
+
+    let data = new FormData();
+    data.append("email_address", email);
+
+    let xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function () {
+
+        if (xhr.readyState === 4) {
+
+            let result = JSON.parse(xhr.responseText);
+
+            if (result.code === 200) {
+                console.log(result);
+            }
+
+            else {
+                // Error handling.
+            }
+        }
+    }.bind(this));
+
+    xhr.open("POST", "https://dev.api.temporal.cloud/v2/forgot/email");
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
+    xhr.send(data);
+};
 ```
 
 > Example Response (200)
