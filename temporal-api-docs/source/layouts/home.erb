@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <%= partial "layouts/favicons" %>
+  <title>Temporal | API Documentation</title>
+  <%= stylesheet_link_tag :home %>
+  <%= partial "layouts/analytics" %>
+</head>
+<body>
+  <div class="header">
+    <div class="logo"></div>
+  </div>
+
+  <div class="content">
+    <%= yield %>
+  </div>
+
+  <div class="footer">
+    <hr>
+    <a href="https://temporal.cloud/" title="Temporal.io"><div class="footer-logo"></div></a>
+    <ul class="footer-links">
+      <li><a href="https://www.rtradetechnologies.com/zh/" target="_blank" title="">RTradeTechnologies</a></li>
+      <li><a href="https://temporal.cloud/" target="_blank" title="">Temporal</a></li>
+      <li><a href="https://github.com/RTradeLtd/Temporal" target="_blank" title="">GitHub</a></li>
+    </ul>
+  </div>
+</body>
+</html>
