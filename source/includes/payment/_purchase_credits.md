@@ -37,7 +37,7 @@ handlePurchase = (type, credits, address) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/request");
+    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/eth/request");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -78,7 +78,7 @@ handlePurchase = (type, credits, address) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/payments/request`
+`https://dev.api.temporal.cloud/v2/payments/eth/request`
 
 Request a signed message that can subsequently be used to purchase credits with RTC or ETH, validated through a smart contract.
 
@@ -141,7 +141,7 @@ submitPayment = (paymentNumber, txHash) => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/confirm");
+    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/eth/confirm");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -157,9 +157,9 @@ submitPayment = (paymentNumber, txHash) => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/payments/confirm`
+`https://dev.api.temporal.cloud/v2/payments/eth/confirm`
 
-Confirm your payment after sending a transaction on the blockchain.
+Confirm your eth or rtc payment after sending a transaction on the blockchain.
 
 ### Parameters
 
@@ -203,7 +203,7 @@ handleDashPayment = (credits) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/create/dash");
+    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/dash/create");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -218,7 +218,7 @@ handleDashPayment = (credits) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/payments/create/dash`
+`https://dev.api.temporal.cloud/v2/payments/dash/create`
 
 Create a payment request to purchase credits with DASH.
 
