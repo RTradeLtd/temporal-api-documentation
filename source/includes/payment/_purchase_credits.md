@@ -232,7 +232,9 @@ Create a payment request to purchase credits with DASH.
 |-----------|------|-------------
 | <b>credit_value</b> | String | The amount of credits you want to purchase.
 
-## GET deposit address
+
+
+## GET create stripe payment
 
 ```go
 Golang code here.
@@ -243,54 +245,25 @@ Python code here.
 ```
 
 ```javascript
-handleDepositAddress = (type) => () => {
-
-    let xhr_stat = new XMLHttpRequest();
-    xhr_stat.withCredentials = false;
-
-    xhr_stat.addEventListener("readystatechange", function () {
-
-        if (xhr_stat.readyState === 4) {
-
-            let result = JSON.parse(xhr_stat.responseText);
-
-            if (result.code === 200) {
-                console.log(result);
-            }
-
-            else {
-                // Error handling.
-            }
-        }
-    }.bind(this));
-
-    xhr_stat.open("GET", "https://dev.api.temporal.cloud/v2/payments/deposit/address/" + type);
-    xhr_stat.setRequestHeader("Cache-Control", "no-cache");
-    xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
-    xhr_stat.send();
-};
+Javascript code here.
 ```
 
 > Example Response (200)
 
 ```
 {
-  "code": 200,
-  "response": "0xc7459562777DDf3A1A7afefBE515E8479Bd3FDBD"
+    // Need example response
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/payments/deposit/address/:type`
+`https://dev.api.temporal.cloud/v2/payments/stripe/:cents`
 
-Returns the deposit address for RTC or ETH payments.
+This call is used to purchase credits by paying with a credit card through Stripe's v3 API. Temporal never saves the credit card information, and prevents users from using the "remember me" functionality that Stripe provides. This means you must enter the credit card each and every time you wish to purchase credits.
+
+The call returns HTML code that can be used to render a "buy now" button which when clicked pops up a form allowing you to enter in your credit card information.
 
 ### Parameters
 
 | Field | Type | Description
-|-----------|------|-------------
-| <b>type</b> | String | The digital asset you are sending, either `RTC` or `ETH`.
-
-
-
-
-
+|-------|------|------------
+| cents | string | number of cents you wish to use to pay for your credits. 500 = $5.00

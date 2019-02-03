@@ -130,7 +130,8 @@ handleUpload = (file, holdtime) => {
 
 `https://dev.api.temporal.cloud/v2/ipfs/public/file/add`
 
-Uploads a file to the public network, and pins it for the specified number of months.
+Uploads a file to the public network with optional encryption, and pins it for the specified number of months. When encrypting the file, it is impossible for Temporal to assist with recovery as we do not store the password.
+
 The response is an IPFS hash that is publicly accessible (unless uploaded to a private network).
 
 <aside class="success">
@@ -149,42 +150,13 @@ For uploading files to private networks, see
 | <b>file</b> | File (Blob) | The file you intend to upload.
 | <b>holdtime</b> | Int | Number of months to pin the file.
 
-## POST upload file advanced
-
-```go
-Golang code here.
-```
-
-```python
-Python code here.
-```
-
-```javascript
-Javascript code here.
-```
-
-> Example Response (200)
-
-```
-{
-  "expire": "2018-12-21T19:31:42Z",
-  "token": "eyJhbG ... "
-}
-```
-
-`https://api.temporal.cloud/v2/auth/login`
-
-Validates the provided username and password to generate a JSON Web Token (JWT) used for authentication.
-This token is valid for exactly 24 hours, at which point you will need to generate a new token.
-
-### Parameters
+### Optional Parameters
 
 | Field | Type | Description
-|-----------|------|-------------
-| <b>username</b> | String | The username.
-| <b>password</b> | String | The associated password.
+|-------|------|-------------
+| <b>passphrase</b> | String | optional parameter used to encrypt upload.
 
-## POST pin file
+## POST pin hash
 
 ```go
 Golang code here.
@@ -236,7 +208,7 @@ handlePinFile = (ipfsHash, holdTime) => () => {
 
 `https://dev.api.temporal.cloud/v2/ipfs/private/pin/:hash`
 
-Pin an IPFS hash through Temporal.
+Pin an IPFS hash through Temporal, storing for the specified number of months. This is used when you want content that already exists on IPFS to be persistently stored and guaranteed to be available for the specified duration. 
 
 ### Parameters
 
