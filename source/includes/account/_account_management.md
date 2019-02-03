@@ -286,3 +286,29 @@ xhr.send();
 View the amount of credits your account has.
 
 The response is of type <b>double</b>.
+
+## Upgrade Account
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here
+```
+
+> Example Response (200)
+
+```
+{
+    // add example response
+}
+```
+
+`https://dev.api.temporal.cloud/v2/account/upgrade`
+
+Used to upgrade your account from free tier to the first non-free tier known as `Light`. When upgrading from a free account you are not eligible to downgrade your account. When upgrading your account, we allocate free $0.115USD worth of your credits, enough to pay for 0.5GB of storage for 1 month.

@@ -57,6 +57,9 @@ handleKeyGenerate = (keyName, keyType, keySize) => () => {
 
 Create an IPFS key with the given parameters.
 
+<aside class="warning"><b>Private keys created are only usable on public IPFS networks. For private networks please use the direct IPFS API through delegator</b></aside>
+
+
 ### Parameters
 
 | Field | Type | Description
