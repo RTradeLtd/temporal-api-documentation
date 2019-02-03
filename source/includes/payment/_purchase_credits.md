@@ -231,39 +231,3 @@ Create a payment request to purchase credits with DASH.
 | Field | Type | Description
 |-----------|------|-------------
 | <b>credit_value</b> | String | The amount of credits you want to purchase.
-
-
-
-## GET create stripe payment
-
-```go
-Golang code here.
-```
-
-```python
-Python code here.
-```
-
-```javascript
-Javascript code here.
-```
-
-> Example Response (200)
-
-```
-{
-    // Need example response
-}
-```
-
-`https://dev.api.temporal.cloud/v2/payments/stripe/:cents`
-
-This call is used to purchase credits by paying with a credit card through Stripe's v3 API. Temporal never saves the credit card information, and prevents users from using the "remember me" functionality that Stripe provides. This means you must enter the credit card each and every time you wish to purchase credits.
-
-The call returns HTML code that can be used to render a "buy now" button which when clicked pops up a form allowing you to enter in your credit card information.
-
-### Parameters
-
-| Field | Type | Description
-|-------|------|------------
-| cents | string | number of cents you wish to use to pay for your credits. 500 = $5.00
