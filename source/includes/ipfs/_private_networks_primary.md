@@ -131,8 +131,9 @@ handleUpload = (file, holdtime, networkName) => {
 
 `https://dev.api.temporal.cloud/v2/ipfs/private/file/add`
 
-Validates the provided username and password to generate a JSON Web Token (JWT) used for authentication.
-This token is valid for exactly 24 hours, at which point you will need to generate a new token.
+Uploads a file to the specified private network with optional encryption, and pins it for the specified number of months. When encrypting the file, it is impossible for Temporal to assist with recovery as we do not store the password.
+
+The response is an IPFS hash that is not publicly accessible.
 
 <aside class="warning">
 File uploads will not work if your private network is stopped.
@@ -146,43 +147,13 @@ File uploads will not work if your private network is stopped.
 | <b>holdtime</b> | Int | Number of months to pin the file.
 | <b>privateNetwork</b> | String | Name of the private network to upload to.
 
-
-## POST upload file advanced
-
-```go
-Golang code here.
-```
-
-```python
-Python code here.
-```
-
-```javascript
-Javascript code here.
-```
-
-> Example Response (200)
-
-```
-{
-  "expire": "2018-12-21T19:31:42Z",
-  "token": "eyJhbG ... "
-}
-```
-
-`https://api.temporal.cloud/v2/auth/login`
-
-Validates the provided username and password to generate a JSON Web Token (JWT) used for authentication.
-This token is valid for exactly 24 hours, at which point you will need to generate a new token.
-
-### Parameters
+### Optional Parameters
 
 | Field | Type | Description
-|-----------|------|-------------
-| <b>username</b> | String | The username.
-| <b>password</b> | String | The associated password.
+|-------|------|-------------
+| <b>passphrase</b> | String | optional parameter used to encrypt upload.
 
-## POST pin file
+## POST pin hash
 
 ```go
 Golang code here.
@@ -235,7 +206,7 @@ handlePinFile = (ipfsHash, holdTime, networkName) => () => {
 
 `https://dev.api.temporal.cloud/v2/ipfs/private/pin/:hash`
 
-Pin a hash to a private network.
+Pin a hash to a private network. This hash *must* be discoverable by the private network node.
 
 ### Parameters
 

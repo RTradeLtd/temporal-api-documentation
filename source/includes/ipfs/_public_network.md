@@ -132,7 +132,7 @@ handleUpload = (file, holdtime) => {
 
 Uploads a file to the public network with optional encryption, and pins it for the specified number of months. When encrypting the file, it is impossible for Temporal to assist with recovery as we do not store the password.
 
-The response is an IPFS hash that is publicly accessible (unless uploaded to a private network).
+The response is an IPFS hash that is publicly accessible.
 
 <aside class="success">
 This API endpoint is used for uploading files to <b>public</b> networks only.
