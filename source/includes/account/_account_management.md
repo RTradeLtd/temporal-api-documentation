@@ -287,7 +287,7 @@ View the amount of credits your account has.
 
 The response is of type <b>double</b>.
 
-## Upgrade Account
+## POST upgrade account
 
 ```go
 Golang code here.
