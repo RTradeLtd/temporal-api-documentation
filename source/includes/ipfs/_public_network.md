@@ -73,8 +73,8 @@ Call <b><a href="#post-start-network">POST start network</a></b> if the network 
 
 | Field | Type | Description
 |-----------|------|-------------
-| <b>networkName</b> | String | The private network to download a file from.
-
+| <b>network_name</b> | String | The private network to download a file from.
+| <b>decrypt_key</b> | String | the passphrase used to decrypt an encrypted file before Temporal sends it to you
 
 ## POST upload file
 

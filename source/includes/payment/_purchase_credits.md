@@ -231,3 +231,36 @@ Create a payment request to purchase credits with DASH.
 | Field | Type | Description
 |-----------|------|-------------
 | <b>credit_value</b> | String | The amount of credits you want to purchase.
+
+## GET payment status
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here.
+```
+
+> Example Response (200)
+
+```
+{
+    "code": 200,
+    "response": true
+}
+```
+
+`https://dev.api.temporal.cloud/v2/payments/status/:number`
+
+Used to get the status of a particular payment id
+
+### Parameters
+
+| Field | Type | Description
+|-------|------|-------------
+| <b>number</b> | Integer | The payment id to retrieve status information for
