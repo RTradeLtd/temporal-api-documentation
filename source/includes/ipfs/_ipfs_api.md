@@ -48,3 +48,11 @@ In this case, we will specify the particular conditions this could occur for a g
 ```
 
 Methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status `400`. The response body will be a JSON object that includes a message as well as a list of fields that failed validation.
+
+## Hold Times
+
+Hold times are used to indicate how long a particular hash should be pinned by our IPFS nodes. Free accounts are limited to 1 month maximum pin times, while non-free accounts are limited to 2 month maximum pin times.
+
+## Upload Sizes
+
+The max upload size is 1GB. When encrypting files, free accounts are limited to a maximum file size of 275MB, while non-free accounts are limited to 1GB

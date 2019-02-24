@@ -126,7 +126,7 @@ Returns the cost (in credits) for pinning a given IPFS Hash. The return value is
 | Field | Type | Description
 |-----------|------|-------------
 | <b>hash</b> | IPFS Hash | The requested IPFS Hash to pin.
-| <b>hold_time</b> | Int | Number of months to pin the hash.
+| <b>holdTime</b> | Int | Number of months to pin the hash.
 
 
 

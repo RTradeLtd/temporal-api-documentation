@@ -144,7 +144,7 @@ File uploads will not work if your private network is stopped.
 | Field | Type | Description
 |-----------|------|-------------
 | <b>file</b> | File (Blob) | The file you intend to upload.
-| <b>holdtime</b> | Int | Number of months to pin the file.
+| <b>hold_time</b> | Int | Number of months to pin the file.
 | <b>privateNetwork</b> | String | Name of the private network to upload to.
 
 ### Optional Parameters
@@ -212,7 +212,7 @@ Pin a hash to a private network. This hash *must* be discoverable by the private
 
 | Field | Type | Description
 |-----------|------|-------------
-| <b>ipfsHash</b> | IPFS Hash | The specific hash to pin.
+| <b>hash</b> | IPFS Hash | The specific hash to pin.
 | <b>hold_time</b> | Int | Number of months to pin the hash.
 | <b>network_name</b> | String | Number of months to pin the hash.
 

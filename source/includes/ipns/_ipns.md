@@ -158,15 +158,15 @@ Lists all IPNS records you've published to public and private networks.
 | Field | Type | Description
 |-----------|------|-------------
 | <b>CreatedAt</b> | DateTime | Time the record was published.
-| <b>CurrentIPFSHash</b> | Bool | <i>Need a description!</i>
+| <b>CurrentIPFSHash</b> | Bool | <i>The current IPFS hash this record resolves to</i>
 | <b>DeletedAt</b> | DateTime | Time the file was deleted.
 | <b>ID</b> | Int | The unique ID of your upload.
-| <b>IPFSHashes</b> | Array[IPFS Hash] | <i>Need a description!</i>
-| <b>IPNSHash</b> | IPFS Hash | <i>Need a description!</i>
+| <b>IPFSHashes</b> | Array[IPFS Hash] | <i>An array of all IPFS hashes this record has resolved to in the past</i>
+| <b>IPNSHash</b> | IPFS Hash | <i>The hash of the public key used to publish this key</i>
 | <b>Key</b> | String | Name of the IPFS key used.
 | <b>LifeTime</b> | String | Number of months your content is pinned.
 | <b>NetworkName</b> | String | Network the record was published on (`public` = Public Network).
-| <b>Sequence</b> | Int | <i>Need a description!</i>
+| <b>Sequence</b> | Int | <i>The current version of the publish. Starts at 0 increments by 1 each publish</i>
 | <b>TTL</b> | String | The time to live.
 | <b>UpdatedAt</b> | DateTime | Time the file was last updated.
 | <b>Username</b> | String | User that published the record (<i>that's you</i>).

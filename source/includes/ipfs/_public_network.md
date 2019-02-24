@@ -148,13 +148,44 @@ For uploading files to private networks, see
 | Field | Type | Description
 |-----------|------|-------------
 | <b>file</b> | File (Blob) | The file you intend to upload.
-| <b>holdtime</b> | Int | Number of months to pin the file.
+| <b>hold_time</b> | Int | Number of months to pin the file.
 
 ### Optional Parameters
 
 | Field | Type | Description
 |-------|------|-------------
 | <b>passphrase</b> | String | optional parameter used to encrypt upload.
+
+## POST upload directory
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+```
+
+> Example Response (200)
+
+```
+> add example respone
+```
+
+`https://dev.api.temporal.cloud/v2/ipfs/public/file/add/directory`
+
+Used to upload a directory to IPFS, particularly useful for hosting websites. The directory **must** first be zipped, with a `.zip` extension, and that zip file is what you must upload. The total uncompressed size of the zip file must be no larger than the maximum upload limit, which is currently 1GB
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>file</b> | File (Blob) | The *zipped* file of the directory you want to upload
+| <b>hold_time</b> | Int | Number of months to pin the file.
+
 
 ## POST pin hash
 
@@ -206,7 +237,7 @@ handlePinFile = (ipfsHash, holdTime) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/pin/:hash`
+`https://dev.api.temporal.cloud/v2/ipfs/public/pin/:hash`
 
 Pin an IPFS hash through Temporal, storing for the specified number of months. This is used when you want content that already exists on IPFS to be persistently stored and guaranteed to be available for the specified duration. 
 
@@ -214,8 +245,44 @@ Pin an IPFS hash through Temporal, storing for the specified number of months. T
 
 | Field | Type | Description
 |-----------|------|-------------
-| <b>ipfsHash</b> | IPFS Hash | The specific hash to pin.
-| <b>holdTime</b> | Int | Number of months to pin the hash.
+| <b>hash</b> | IPFS Hash | The specific hash to pin.
+| <b>hold_time</b> | Int | Number of months to pin the hash.
+
+
+## POST extend pin
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here
+```
+
+> Example Response (200)
+
+```
+{
+    "code": 200,
+    "response": "pin time successfully extended"
+}
+```
+
+`https://dev.api.temporal.cloud/v2/ipfs/public/pin/:hash/extend`
+
+Used to extend the hold time of an existing IPFS pin of yours, up to the specified number of months. The total hold time for free accounts must be 1 month (including after extension), while non-free accounts is 2 years (including after extension)
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>hash</b> | IPFS Hash | The specific hash to pin.
+| <b>hold_time</b> | Int | Number of months to pin the hash.
+
 
 ## POST pubsub
 
