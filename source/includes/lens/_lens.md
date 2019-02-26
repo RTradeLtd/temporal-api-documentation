@@ -135,7 +135,7 @@ handleIndexing = (hash, reindex, type) => {
 }
 ```
 
-`https://api.temporal.cloud/v2/auth/login`
+`https://api.temporal.cloud/v2/lens/index`
 
 Submit a file for indexing to the Lens database.
 
