@@ -214,7 +214,8 @@ handleDashPayment = (credits) => () => {
 
 ```
 {
-  // Need example response.
+  "code": 200,
+  "response": "stripe credit purchase successful"
 }
 ```
 
