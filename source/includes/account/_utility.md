@@ -31,7 +31,7 @@ xhr.addEventListener("readystatechange", function () {
     }
 }.bind(this));
 
-xhr.open("GET", "https://dev.api.temporal.cloud/v2/account/token/username");
+xhr.open("GET", "https://api.temporal.cloud/v2/account/token/username");
 xhr.setRequestHeader("Cache-Control", "no-cache");
 xhr.setRequestHeader("Authorization", "Bearer " + Session.get('token'));
 xhr.send(data);
@@ -46,7 +46,7 @@ xhr.send(data);
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/account/token/username`
+`https://api.temporal.cloud/v2/account/token/username`
 
 Returns the username associated with the current token (for validation purposes).
 
@@ -82,7 +82,7 @@ xhr.addEventListener("readystatechange", function () {
     }
 }.bind(this));
 
-xhr.open("GET", "https://dev.api.temporal.cloud/v2/auth/refresh");
+xhr.open("GET", "https://api.temporal.cloud/v2/auth/refresh");
 xhr.setRequestHeader("Cache-Control", "no-cache");
 xhr.setRequestHeader("Authorization", "Bearer " + Session.get('token'));
 xhr.send(data);
@@ -96,7 +96,7 @@ xhr.send(data);
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/auth/refresh`
+`https://api.temporal.cloud/v2/auth/refresh`
 
 This allows a user to refresh their JWT before the expiration data of 24 hours, preventing them having to generate a new JWT.
 
@@ -138,6 +138,6 @@ Javascript code here
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/account/usage`
+`https://api.temporal.cloud/v2/account/usage`
 
 This allows returning the users current data usage information

@@ -37,7 +37,7 @@ handleKeyGenerate = (keyName, keyType, keySize) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/account/key/ipfs/new");
+    xhr.open("POST", "https://api.temporal.cloud/v2/account/key/ipfs/new");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -53,7 +53,7 @@ handleKeyGenerate = (keyName, keyType, keySize) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/account/key/ipfs/new`
+`https://api.temporal.cloud/v2/account/key/ipfs/new`
 
 Create an IPFS key with the given parameters.
 
@@ -101,7 +101,7 @@ handleKeyExport = (keyName) => () => {
         }
     }.bind(this));
 
-    xhr.open("GET", "https://dev.api.temporal.cloud/v2/account/key/export/" + keyName);
+    xhr.open("GET", "https://api.temporal.cloud/v2/account/key/export/" + keyName);
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -124,7 +124,7 @@ handleKeyExport = (keyName) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/account/key/export/:name`
+`https://api.temporal.cloud/v2/account/key/export/:name`
 
 Exports the mnemonic phrase associated with a given key.
 
@@ -177,7 +177,7 @@ xhr.addEventListener("readystatechange", function () {
     }
 }.bind(this));
 
-xhr.open("GET", "https://dev.api.temporal.cloud/v2/account/key/ipfs/get");
+xhr.open("GET", "https://api.temporal.cloud/v2/account/key/ipfs/get");
 xhr.setRequestHeader("Cache-Control", "no-cache");
 xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
 xhr.send();
@@ -205,7 +205,7 @@ xhr.send();
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/account/key/ipfs/get`
+`https://api.temporal.cloud/v2/account/key/ipfs/get`
 
 Retrieve all IPFS keys generated through Temporal.
 

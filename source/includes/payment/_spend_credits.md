@@ -36,7 +36,7 @@ handleCalculateFileCost = (file, holdTime) => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/frontend/cost/calculate/file");
+    xhr.open("POST", "https://api.temporal.cloud/v2/frontend/cost/calculate/file");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -53,7 +53,7 @@ handleCalculateFileCost = (file, holdTime) => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/frontend/cost/calculate/file`
+`https://api.temporal.cloud/v2/frontend/cost/calculate/file`
 
 Returns the cost (in credits) for storing a given file. The return value is of type <b>double</b>.
 
@@ -100,7 +100,7 @@ handleGetPinCost = (hash, holdTime) => () => {
         }
     }.bind(this));
 
-    xhr.open("GET", "https://dev.api.temporal.cloud/v2/frontend/cost/calculate/" + hash + "/" + holdTime);
+    xhr.open("GET", "https://api.temporal.cloud/v2/frontend/cost/calculate/" + hash + "/" + holdTime);
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -117,7 +117,7 @@ handleGetPinCost = (hash, holdTime) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/frontend/cost/calculate/:hash/:holdTime`
+`https://api.temporal.cloud/v2/frontend/cost/calculate/:hash/:holdTime`
 
 Returns the cost (in credits) for pinning a given IPFS Hash. The return value is of type <b>double</b>.
 

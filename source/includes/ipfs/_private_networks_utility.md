@@ -38,7 +38,7 @@ handleBeam = (sourceNetwork, destinationNetwork, hash, passphrase) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/utils/laser/beam");
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/utils/laser/beam");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -54,7 +54,7 @@ handleBeam = (sourceNetwork, destinationNetwork, hash, passphrase) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/utils/laser/beam`
+`https://api.temporal.cloud/v2/ipfs/utils/laser/beam`
 
 Transfer content between two different IPFS networks.
 
@@ -103,7 +103,7 @@ handleObject = (hash, networkName) => () => {
         }
     }.bind(this));
 
-    xhr_stat.open("GET", "https://dev.api.temporal.cloud/v2/ipfs/private/stat/" + hash + "/" + networkName);
+    xhr_stat.open("GET", "https://api.temporal.cloud/v2/ipfs/private/stat/" + hash + "/" + networkName);
     xhr_stat.setRequestHeader("Cache-Control", "no-cache");
     xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr_stat.send();
@@ -126,7 +126,7 @@ handleObject = (hash, networkName) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/stat/:hash/:networkName`
+`https://api.temporal.cloud/v2/ipfs/private/stat/:hash/:networkName`
 
 Retrieve information about an object (hash) on a private network.
 
@@ -173,7 +173,7 @@ handleUploads = (networkName) => () => {
         }
     }.bind(this));
 
-    xhr_stat.open("GET", "https://dev.api.temporal.cloud/v2/ipfs/private/uploads/" + networkName);
+    xhr_stat.open("GET", "https://api.temporal.cloud/v2/ipfs/private/uploads/" + networkName);
     xhr_stat.setRequestHeader("Cache-Control", "no-cache");
     xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr_stat.send();
@@ -206,7 +206,7 @@ handleUploads = (networkName) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/uploads/:networkName`
+`https://api.temporal.cloud/v2/ipfs/private/uploads/:networkName`
 
 Retrieve uploads for a private network.
 
@@ -259,7 +259,7 @@ handleAuthorizedNetworks = () => {
         }
     }.bind(this));
 
-    xhr_stat.open("GET", "https://dev.api.temporal.cloud/v2/ipfs/private/networks");
+    xhr_stat.open("GET", "https://api.temporal.cloud/v2/ipfs/private/networks");
     xhr_stat.setRequestHeader("Cache-Control", "no-cache");
     xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr_stat.send();
@@ -281,7 +281,7 @@ handleAuthorizedNetworks = () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/networks`
+`https://api.temporal.cloud/v2/ipfs/private/networks`
 
 View your authorized networks. The response is an array of strings, each representing a private network name.
 
@@ -317,7 +317,7 @@ handleNetwork = (networkName) => () => {
         }
     }.bind(this));
 
-    xhr_stat.open("GET", "https://dev.api.temporal.cloud/v2/ipfs/private/network/" + networkName);
+    xhr_stat.open("GET", "https://api.temporal.cloud/v2/ipfs/private/network/" + networkName);
     xhr_stat.setRequestHeader("Cache-Control", "no-cache");
     xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr_stat.send();
@@ -350,7 +350,7 @@ handleNetwork = (networkName) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/network/:name`
+`https://api.temporal.cloud/v2/ipfs/private/network/:name`
 
 Retrieve network statistics from a single private network.
 

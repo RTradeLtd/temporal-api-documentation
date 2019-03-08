@@ -40,7 +40,7 @@ handlePublicIPNS = (hash, lifetime, ttl, key, resolve) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipns/public/publish/details");
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipns/public/publish/details");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -55,7 +55,7 @@ handlePublicIPNS = (hash, lifetime, ttl, key, resolve) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipns/public/publish/details`
+`https://api.temporal.cloud/v2/ipns/public/publish/details`
 
 Publish IPNS records to the public network.
 
@@ -100,7 +100,7 @@ xhr.addEventListener("readystatechange", function () {
     }
 }.bind(this));
 
-xhr.open("GET", "https://dev.api.temporal.cloud/v2/ipns/records");
+xhr.open("GET", "https://api.temporal.cloud/v2/ipns/records");
 xhr.setRequestHeader("Cache-Control", "no-cache");
 xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
 xhr.send();
@@ -149,7 +149,7 @@ xhr.send();
 }
 ```
 
-`https://dev.api.temporal.cloud/api/v2/ipns/records`
+`https://api.temporal.cloud/api/v2/ipns/records`
 
 Lists all IPNS records you've published to public and private networks.
 

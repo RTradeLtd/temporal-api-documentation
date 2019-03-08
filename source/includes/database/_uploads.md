@@ -30,7 +30,7 @@ xhr.addEventListener("readystatechange", function () {
     }
 }.bind(this));
 
-xhr.open("GET", "https://dev.api.temporal.cloud/v2/database/uploads");
+xhr.open("GET", "https://api.temporal.cloud/v2/database/uploads");
 xhr.setRequestHeader("Cache-Control", "no-cache");
 xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
 xhr.send();
@@ -74,7 +74,7 @@ xhr.send();
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/database/uploads`
+`https://api.temporal.cloud/v2/database/uploads`
 
 Returns a list of all uploads to the Temporal database. The response is an array which conforms to the following data structure:
 
@@ -125,7 +125,7 @@ xhr.addEventListener("readystatechange", function () {
     }
 }.bind(this));
 
-xhr.open("GET", "https://dev.api.temporal.cloud/v2/database/uploads/encrypted");
+xhr.open("GET", "https://api.temporal.cloud/v2/database/uploads/encrypted");
 xhr.setRequestHeader("Cache-Control", "no-cache");
 xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
 xhr.send();
@@ -169,7 +169,7 @@ xhr.send();
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/database/uploads/encrypted`
+`https://api.temporal.cloud/v2/database/uploads/encrypted`
 
 Returns a list of all encrypted uploads to the Temporal database.
 

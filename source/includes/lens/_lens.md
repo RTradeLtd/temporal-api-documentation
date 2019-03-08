@@ -36,7 +36,7 @@ handleSearch = (query) => () => {
 
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/lens/search");
+    xhr.open("POST", "https://api.temporal.cloud/v2/lens/search");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -62,7 +62,7 @@ handleSearch = (query) => () => {
     }
 ```
 
-`https://dev.api.temporal.cloud/v2/lens/search`
+`https://api.temporal.cloud/v2/lens/search`
 
 Search for a particular file through Lens by providing a required query string. Example of queries are `blockchain` `data storage`.
 There are optional additional search clauses which can effect the results returned.
@@ -114,7 +114,7 @@ handleIndexing = (hash, reindex, type) => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/lens/index");
+    xhr.open("POST", "https://api.temporal.cloud/v2/lens/index");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -143,8 +143,8 @@ Submit a file for indexing to the Lens database.
 
 | Field | Type | Description
 |-----------|------|-------------
-| <b>hash</b> | IPFS Hash | The public hash to submit for indexing.
-| <b>type</b> | String | The object type, only `ipld` is supported.
+| <b>object_identifier</b> | IPFS Hash | The public hash to submit for indexing.
+| <b>object_type</b> | String | The object type, only `ipld` is supported.
 
 ### Response (200)
 

@@ -35,7 +35,7 @@ handleForgotUsername = (email) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/forgot/username");
+    xhr.open("POST", "https://api.temporal.cloud/v2/forgot/username");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.send(data);
 };
@@ -49,7 +49,7 @@ handleForgotUsername = (email) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/forgot/username`
+`https://api.temporal.cloud/v2/forgot/username`
 
 Sends a reminder to the associated e-mail address with the given username. Your account must have an activated e-mail address for this call to execute.
 
@@ -98,7 +98,7 @@ handleForgotPassword = (email) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/forgot/password");
+    xhr.open("POST", "https://api.temporal.cloud/v2/forgot/password");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.send(data);
 };
@@ -112,7 +112,7 @@ handleForgotPassword = (email) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/forgot/password`
+`https://api.temporal.cloud/v2/forgot/password`
 
 Resets the password for the account with the associated email, sending it via email.
 
@@ -161,7 +161,7 @@ handleForgotEmail => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/forgot/email");
+    xhr.open("POST", "https://api.temporal.cloud/v2/forgot/email");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -176,6 +176,6 @@ handleForgotEmail => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/forgot/email`
+`https://api.temporal.cloud/v2/forgot/email`
 
 Returns the e-mail address associated with the JWT supplied.

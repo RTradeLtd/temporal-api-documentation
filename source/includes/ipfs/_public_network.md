@@ -46,14 +46,14 @@ handleDownload = (ipfsHash, networkName) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud:6767/v2/ipfs/utils/download/" + ipfsHash);
+    xhr.open("POST", "https://api.temporal.cloud:6767/v2/ipfs/utils/download/" + ipfsHash);
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data); // Use xhr.send() if not supplying a private networkName.
 };
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/utils/download/:hash`
+`https://api.temporal.cloud/v2/ipfs/utils/download/:hash`
 
 Downloads a specific hash that was previously uploaded through the Temporal <b><a href="#post-upload-file">POST upload file</a></b> call.
 
@@ -112,7 +112,7 @@ handleUpload = (file, holdtime) => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/public/file/add");
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/public/file/add");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -128,7 +128,7 @@ handleUpload = (file, holdtime) => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/public/file/add`
+`https://api.temporal.cloud/v2/ipfs/public/file/add`
 
 Uploads a file to the public network with optional encryption, and pins it for the specified number of months. When encrypting the file, it is impossible for Temporal to assist with recovery as we do not store the password.
 
@@ -175,7 +175,7 @@ Python code here.
 > add example respone
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/public/file/add/directory`
+`https://api.temporal.cloud/v2/ipfs/public/file/add/directory`
 
 Used to upload a directory to IPFS, particularly useful for hosting websites. The directory **must** first be zipped, with a `.zip` extension, and that zip file is what you must upload. The total uncompressed size of the zip file must be no larger than the maximum upload limit, which is currently 1GB
 
@@ -221,7 +221,7 @@ handlePinFile = (ipfsHash, holdTime) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/public/pin/" + ipfsHash);
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/public/pin/" + ipfsHash);
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -237,7 +237,7 @@ handlePinFile = (ipfsHash, holdTime) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/public/pin/:hash`
+`https://api.temporal.cloud/v2/ipfs/public/pin/:hash`
 
 Pin an IPFS hash through Temporal, storing for the specified number of months. This is used when you want content that already exists on IPFS to be persistently stored and guaranteed to be available for the specified duration. 
 
@@ -272,7 +272,7 @@ Javascript code here
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/public/pin/:hash/extend`
+`https://api.temporal.cloud/v2/ipfs/public/pin/:hash/extend`
 
 Used to extend the hold time of an existing IPFS pin of yours, up to the specified number of months. The total hold time for free accounts must be 1 month (including after extension), while non-free accounts is 2 years (including after extension)
 
@@ -319,7 +319,7 @@ handlePubSub = (message, topic) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/public/pubsub/publish/" + topic.toString());
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/public/pubsub/publish/" + topic.toString());
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -339,7 +339,7 @@ handlePubSub = (message, topic) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/public/pubsub/publish/:topic`
+`https://api.temporal.cloud/v2/ipfs/public/pubsub/publish/:topic`
 
 Publish a message to the given PubSub topic.
 
@@ -388,7 +388,7 @@ handleObject = (hash) => () => {
         }
     }.bind(this));
 
-    xhr_stat.open("GET", "https://dev.api.temporal.cloud/v2/ipfs/public/stat/" + hash);
+    xhr_stat.open("GET", "https://api.temporal.cloud/v2/ipfs/public/stat/" + hash);
     xhr_stat.setRequestHeader("Cache-Control", "no-cache");
     xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr_stat.send();
@@ -411,7 +411,7 @@ handleObject = (hash) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/public/stat/:hash`
+`https://api.temporal.cloud/v2/ipfs/public/stat/:hash`
 
 Retrieve information about an IPFS hash.
 
@@ -458,7 +458,7 @@ handleDAG = (hash) => () => {
         }
     }.bind(this));
 
-    xhr_stat.open("GET", "https://dev.api.temporal.cloud/v2/ipfs/public/dag/" + hash);
+    xhr_stat.open("GET", "https://api.temporal.cloud/v2/ipfs/public/dag/" + hash);
     xhr_stat.setRequestHeader("Cache-Control", "no-cache");
     xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr_stat.send();
@@ -548,7 +548,7 @@ handleDAG = (hash) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/public/dag/:hash`
+`https://api.temporal.cloud/v2/ipfs/public/dag/:hash`
 
 Retrieves the associated IPLD object for a given CID.
 

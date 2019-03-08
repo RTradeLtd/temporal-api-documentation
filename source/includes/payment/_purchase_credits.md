@@ -37,7 +37,7 @@ handlePurchase = (type, credits, address) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/eth/request");
+    xhr.open("POST", "https://api.temporal.cloud/v2/payments/eth/request");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -78,7 +78,7 @@ handlePurchase = (type, credits, address) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/payments/eth/request`
+`https://api.temporal.cloud/v2/payments/eth/request`
 
 Request a signed message that can subsequently be used to purchase credits with RTC or ETH, validated through a smart contract.
 
@@ -141,7 +141,7 @@ submitPayment = (paymentNumber, txHash) => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/eth/confirm");
+    xhr.open("POST", "https://api.temporal.cloud/v2/payments/eth/confirm");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -157,7 +157,7 @@ submitPayment = (paymentNumber, txHash) => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/payments/eth/confirm`
+`https://api.temporal.cloud/v2/payments/eth/confirm`
 
 Confirm your eth or rtc payment after sending a transaction on the blockchain.
 
@@ -203,7 +203,7 @@ handleDashPayment = (credits) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/payments/dash/create");
+    xhr.open("POST", "https://api.temporal.cloud/v2/payments/dash/create");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -219,7 +219,7 @@ handleDashPayment = (credits) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/payments/dash/create`
+`https://api.temporal.cloud/v2/payments/dash/create`
 
 Create a payment request to purchase credits with DASH.
 
@@ -255,7 +255,7 @@ javascript code here
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/payments/stripe/charge`
+`https://api.temporal.cloud/v2/payments/stripe/charge`
 
 Calls the Temporal backend to process, and place a charge against a credit card to purchase Credits. All purchasing is done with a currency value of USD.
 
@@ -293,7 +293,7 @@ Javascript code here.
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/payments/status/:number`
+`https://api.temporal.cloud/v2/payments/status/:number`
 
 Used to get the status of a particular payment id
 

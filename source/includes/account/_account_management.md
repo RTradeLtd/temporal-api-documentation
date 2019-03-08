@@ -13,7 +13,7 @@ Python code here.
 ```javascript
 handleLogin = (username, password) => () => {
 
-        fetch('https://dev.api.temporal.cloud/v2/auth/login', {
+        fetch('https://api.temporal.cloud/v2/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'text/plain'
@@ -48,7 +48,7 @@ handleLogin = (username, password) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/auth/login`
+`https://api.temporal.cloud/v2/auth/login`
 
 Validates the provided username and password to generate a JSON Web Token (JWT) used for authentication.
 This token is valid for exactly 24 hours, at which point you will need to generate a new token.
@@ -104,7 +104,7 @@ handleRegister = (username, password, email) => () => {
             }
         }.bind(this));
 
-        xhr.open("POST", "https://dev.api.temporal.cloud/v2/auth/register");
+        xhr.open("POST", "https://api.temporal.cloud/v2/auth/register");
         xhr.setRequestHeader("Cache-Control", "no-cache");
         xhr.send(data);
 
@@ -138,7 +138,7 @@ handleRegister = (username, password, email) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/auth/register`
+`https://api.temporal.cloud/v2/auth/register`
 
 Registers your information for the `POST login` call, which is used to generate authenticated JSON Web Tokens (JWT).
 
@@ -208,7 +208,7 @@ handleChangePassword = (oldPassword, newPassword) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/account/password/change");
+    xhr.open("POST", "https://api.temporal.cloud/v2/account/password/change");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -225,7 +225,7 @@ handleChangePassword = (oldPassword, newPassword) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/account/password/change`
+`https://api.temporal.cloud/v2/account/password/change`
 
 Change the password associated with your account.
 
@@ -258,7 +258,7 @@ Javascript code here
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/account/upgrade`
+`https://api.temporal.cloud/v2/account/upgrade`
 
 Used to upgrade your account from free tier to the first non-free tier known as `Light`. When upgrading from a free account you are not eligible to downgrade your account. When upgrading your account, we allocate free $0.115USD worth of your credits, enough to pay for 0.5GB of storage for 1 month.
 
@@ -292,7 +292,7 @@ xhr.addEventListener("readystatechange", function () {
     }
 }.bind(this));
 
-xhr.open("GET", "https://dev.api.temporal.cloud/v2/account/credits/available");
+xhr.open("GET", "https://api.temporal.cloud/v2/account/credits/available");
 xhr.setRequestHeader("Cache-Control", "no-cache");
 xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
 xhr.send();
@@ -307,7 +307,7 @@ xhr.send();
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/account/credits/available`
+`https://api.temporal.cloud/v2/account/credits/available`
 
 View the amount of credits your account has.
 

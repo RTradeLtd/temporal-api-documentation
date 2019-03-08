@@ -46,14 +46,14 @@ handleDownload = (ipfsHash, networkName) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud:6767/v2/ipfs/utils/download/" + ipfsHash);
+    xhr.open("POST", "https://api.temporal.cloud:6767/v2/ipfs/utils/download/" + ipfsHash);
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data); // Use xhr.send() if not supplying a private networkName.
 };
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/utils/download/:hash`
+`https://api.temporal.cloud/v2/ipfs/utils/download/:hash`
 
 Downloads a specific hash that was previously uploaded through the Temporal <b><a href="#post-upload-file">POST upload file</a></b> call.
 
@@ -113,7 +113,7 @@ handleUpload = (file, holdtime, networkName) => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/private/file/add");
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/private/file/add");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -129,7 +129,7 @@ handleUpload = (file, holdtime, networkName) => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/file/add`
+`https://api.temporal.cloud/v2/ipfs/private/file/add`
 
 Uploads a file to the specified private network with optional encryption, and pins it for the specified number of months. When encrypting the file, it is impossible for Temporal to assist with recovery as we do not store the password.
 
@@ -188,7 +188,7 @@ handlePinFile = (ipfsHash, holdTime, networkName) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/private/pin/" + ipfsHash);
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/private/pin/" + ipfsHash);
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -204,7 +204,7 @@ handlePinFile = (ipfsHash, holdTime, networkName) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/pin/:hash`
+`https://api.temporal.cloud/v2/ipfs/private/pin/:hash`
 
 Pin a hash to a private network. This hash *must* be discoverable by the private network node.
 
@@ -247,7 +247,7 @@ handleCheckPin = (hash, networkName) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/private/pin/check/" + hash + "/" + networkName);
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/private/pin/check/" + hash + "/" + networkName);
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -263,7 +263,7 @@ handleCheckPin = (hash, networkName) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/pin/check/:hash/:networkName`
+`https://api.temporal.cloud/v2/ipfs/private/pin/check/:hash/:networkName`
 
 Check if a network is pinning the given hash.
 
@@ -310,7 +310,7 @@ handlePubSub = (message, topic, networkName) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/public/pubsub/publish/" + topic.toString());
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/public/pubsub/publish/" + topic.toString());
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -329,7 +329,7 @@ handlePubSub = (message, topic, networkName) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/pubsub/publish/:topic`
+`https://api.temporal.cloud/v2/ipfs/private/pubsub/publish/:topic`
 
 Publish a message on a private network to the given topic.
 
@@ -387,7 +387,7 @@ handleCreateNetwork = (networkName, swarmKey, bootstrapPeers, users) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/private/network/new");
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/private/network/new");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -411,7 +411,7 @@ handleCreateNetwork = (networkName, swarmKey, bootstrapPeers, users) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/network/new`
+`https://api.temporal.cloud/v2/ipfs/private/network/new`
 
 Create a private network through Temporal.
 
@@ -473,7 +473,7 @@ handleStart = (networkName) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/private/network/start");
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/private/network/start");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -492,7 +492,7 @@ handleStart = (networkName) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/network/start`
+`https://api.temporal.cloud/v2/ipfs/private/network/start`
 
 Start a private network, enabling uploads and downloads.
 
@@ -544,7 +544,7 @@ handleStart = (networkName) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://dev.api.temporal.cloud/v2/ipfs/private/network/stop");
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/private/network/stop");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
@@ -563,7 +563,7 @@ handleStart = (networkName) => () => {
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/network/stop`
+`https://api.temporal.cloud/v2/ipfs/private/network/stop`
 
 Stop a private network, preventing uploads and downloads.
 
@@ -603,7 +603,7 @@ Javascript code here.
 }
 ```
 
-`https://dev.api.temporal.cloud/v2/ipfs/private/network/remove`
+`https://api.temporal.cloud/v2/ipfs/private/network/remove`
 
 Delete a private network.
 
