@@ -115,32 +115,33 @@ handleRegister = (username, password, email) => () => {
 
 ```
 {
-  "code": 200,
-  "response": {
-    "ID": 225,
-    "CreatedAt": "2018-12-20T19:33:52.003315586Z",
-    "UpdatedAt": "2018-12-20T19:33:52.003315586Z",
-    "DeletedAt": null,
-    "UserName": "postables+test2019",
-    "EmailAddress": "postables+test2019@rtradetechnologies.com",
-    "EnterpriseEnabled": false,
-    "AccountEnabled": true,
-    "APIAccess": true,
-    "EmailEnabled": false,
-    "EmailVerificationToken": "",
-    "AdminAccess": false,
-    "HashedPassword": "scrubbed",
-    "Credits": 99999999,
-    "IPFSKeyNames": null,
-    "IPFSKeyIDs": null,
-    "IPFSNetworkNames": null
-  }
+    "code": 200,
+    "response": {
+        "ID": 249,
+        "CreatedAt": "2019-03-09T06:27:39.180443Z",
+        "UpdatedAt": "2019-03-09T06:27:39.257956756Z",
+        "DeletedAt": null,
+        "UserName": "postables-demo",
+        "EmailAddress": "demo@example.org",
+        "AccountEnabled": true,
+        "EmailEnabled": false,
+        "EmailVerificationToken": "scrubbed",
+        "AdminAccess": false,
+        "HashedPassword": "scrubbed",
+        "Free": true,
+        "Credits": 0,
+        "CustomerObjectHash": "zdpuAnUGSDoNQoHQ2jpjhPePHEvg26mYLsAAGxr4jkzCWUpde",
+        "IPFSKeyNames": null,
+        "IPFSKeyIDs": null,
+        "IPFSNetworkNames": null,
+        "Status": "by continuing to use this service you agree to be bound by the following api terms and servicehttps://gateway.temporal.cloud/ipns/docs.dev.ts.temporal.cloud"
+    }
 }
 ```
 
 `https://api.temporal.cloud/v2/auth/register`
 
-Registers your information for the `POST login` call, which is used to generate authenticated JSON Web Tokens (JWT).
+Registers your information for the `POST login` call, which is used to generate the JWT (JSON Web Token) we use for API authentication. The field `status` within the `response` object, is used to display the terms and service URL associated with the API, that will change depending on usage of either the production, or development API. The values of `EmailVerificationToken` and `HashedPassword` are scrubbed before the response is sent.
 
 ### Parameters
 
@@ -160,17 +161,18 @@ Registers your information for the `POST login` call, which is used to generate 
 | <b>DeletedAt</b> | DateTime | Time the account was deleted.
 | <b>Username</b> | String | Your username.
 | <b>EmailAddress</b> | String | Your e-mail address.
-| <b>EnterpriseEnabled</b> | Bool | Your account's enterprise status.
 | <b>AccountEnabled</b> | Bool | Your account status.
-| <b>APIAccess</b> | Bool | Your API access.
 | <b>EmailEnabled</b> | Bool | Your e-mail notification status.
 | <b>EmailVerificationToken</b> | String | Sent via e-mail to confirm association.
 | <b>AdminAccess</b> | Bool | Your admin status.
-| <b>HashedPassword</b> | String | The handling of your password.
+| <b>HashedPassword</b> | String | The hash of your password
+| <b>Free</b> | Bool | Indicates if the account is free tier 
 | <b>Credits</b> | Int | Your starting credits.
+| <b>CustomerObjectHash</b> | String | IPLD object of your uploads (not yet implemented)
 | <b>IPFSKeyNames</b> | Array[String] | IPFS key names associated with your account.
 | <b>IPFSKeyIDs</b> | Array[String] | IPFS key values associated with your account.
 | <b>IPFSNetworkNames</b> | Array[String] | Private IPFS networks associated with your account.
+| <b>Status</b> | String | Terms And Service link
 
 ## POST password change
 
