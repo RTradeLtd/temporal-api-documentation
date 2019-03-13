@@ -1,6 +1,6 @@
-# Private Networks - Utility
+# Private Network - Management
 
-## POST beam
+## POST create network
 
 ```go
 Golang code here.
@@ -11,13 +11,15 @@ Python code here.
 ```
 
 ```javascript
-handleBeam = (sourceNetwork, destinationNetwork, hash, passphrase) => () => {
+handleCreateNetwork = (networkName, swarmKey, bootstrapPeers, users) => () => {
 
     let data = new FormData();
-    data.append("source_network", sourceNetwork);
-    data.append("destination_network", destinationNetwork);
-    data.append("content_hash", hash);
-    data.append("passphrase", passphrase);
+    data.append("network_name", networkName);
+
+    // If optional paramaters are supplied.
+    data.append("swarm_key", swarmKey);
+    data.append("bootstrapPeers", bootstrapPeers);
+    data.append("users", users.split(','));
 
     let xhr = new XMLHttpRequest();
     xhr.withCredentials = false;
@@ -38,11 +40,211 @@ handleBeam = (sourceNetwork, destinationNetwork, hash, passphrase) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/utils/laser/beam");
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/private/network/new");
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data);
 };
+```
+
+> Example Response (200)
+
+```
+{
+  "code": 200,
+  "response": {
+    "api_url": "192.168.1.243:5981",
+    "id": 51,
+    "network_name": "thisisnotarealtestnetwork",
+    "swarm_key": "/key/swarm/psk/1.0.0/\n/base16/\n0a1bb9d5a949484f19d84104981c94827bff62268b82d7a36d3358aa629465ba",
+    "users": [
+      "postables"
+    ]
+  }
+}
+```
+
+`https://api.temporal.cloud/v2/ipfs/private/network/new`
+
+Create a private network through Temporal.
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>network_name</b> | String | The name of your network.
+| <b>swarm_key</b>* | String | The swarm key.
+| <b>bootstrap_peers</b>* | String | The bootstrap peers.
+| <b>users</b>* | Array[String] | A list of usernames which have access to the private network.
+
+<aside class="warning">
+*Optional parameters. Note that if one optional parameter is supplied, all three must be supplied.
+</aside>
+
+### Response (200)
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>api_url</b> | String | The API endpoint for your network.
+| <b>id</b> | Int | The unique ID of your network.
+| <b>network_names</b> | String | The name of your network.
+| <b>swarm_key</b> | String | The swarm key generated (or provided) for the network.
+| <b>users</b> | Array[String] | A list of usernames which have access to the private network.
+
+## POST start network
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+handleStart = (networkName) => () => {
+
+    let data = new FormData();
+    data.append("network_name", networkName);
+
+    let xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function () {
+
+        if (xhr.readyState === 4) {
+
+            let result = JSON.parse(xhr.responseText);
+
+            if (result.code === 200) {
+                console.log(result);
+            }
+
+            else {
+                // Error handling.
+            }
+        }
+    }.bind(this));
+
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/private/network/start");
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
+    xhr.send(data);
+};
+```
+
+> Example Response (200)
+
+```
+{
+  "code": 200,
+  "response": {
+    "network_name": "thisisnotarealtestnetwork",
+    "state": "started"
+  }
+}
+```
+
+`https://api.temporal.cloud/v2/ipfs/private/network/start`
+
+Start a private network, enabling uploads and downloads.
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>network_name</b> | String | The network to start.
+
+### Response (200)
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>network_name</b> | String | The network that was started.
+| <b>state</b> | String | The new state of the network ("started").
+
+## POST stop network
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+handleStart = (networkName) => () => {
+
+    let data = new FormData();
+    data.append("network_name", networkName);
+
+    let xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+
+    xhr.addEventListener("readystatechange", function () {
+
+        if (xhr.readyState === 4) {
+
+            let result = JSON.parse(xhr.responseText);
+
+            if (result.code === 200) {
+                console.log(result);
+            }
+
+            else {
+                // Error handling.
+            }
+        }
+    }.bind(this));
+
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/private/network/stop");
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
+    xhr.send(data);
+};
+```
+
+> Example Response (200)
+
+```
+{
+  "code": 200,
+  "response": {
+    "network_name": "thisisnotarealtestnetwork",
+    "state": "stopped"
+  }
+}
+```
+
+`https://api.temporal.cloud/v2/ipfs/private/network/stop`
+
+Stop a private network, preventing uploads and downloads.
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>network_name</b> | String | The network to stop.
+
+### Response (200)
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>network_name</b> | String | The network that was started.
+| <b>state</b> | String | The new state of the network ("stopped").
+
+## DEL remove network
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here.
 ```
 
 > Example Response (200)
@@ -54,178 +256,20 @@ handleBeam = (sourceNetwork, destinationNetwork, hash, passphrase) => () => {
 }
 ```
 
-`https://api.temporal.cloud/v2/ipfs/utils/laser/beam`
+`https://api.temporal.cloud/v2/ipfs/private/network/remove`
 
-Transfer content between two different IPFS networks.
+Delete a private network.
+
+<aside class="warning">
+Network deletion will not work if your private network is running. Ensure you have stopped it.
+</aside>
 
 ### Parameters
 
 | Field | Type | Description
 |-----------|------|-------------
-| <b>source_network</b> | String | The network to copy content from.
-| <b>destination_network</b> | String | The network to copy content to.
-| <b>content_hash</b> | IPFS Hash | The content to hash.
-| <b>passphrase</b>* | String | Passphrase to encrypt the content with.
-
-<aside class="warning">
-*Optional parameter. If you supply a passphrase, the content will be encrypted during transfer.
-</aside>
-
-## GET object stats
-
-```go
-Golang code here.
-```
-
-```python
-Python code here.
-```
-
-```javascript
-handleObject = (hash, networkName) => () => {
-
-    let xhr_stat = new XMLHttpRequest();
-    xhr_stat.withCredentials = false;
-
-    xhr_stat.addEventListener("readystatechange", function () {
-
-        if (xhr_stat.readyState === 4) {
-
-            let result = JSON.parse(xhr_stat.responseText);
-
-            if (result.code === 200) {
-                console.log(result);
-            }
-
-            else {
-                // Error handling.
-            }
-        }
-    }.bind(this));
-
-    xhr_stat.open("GET", "https://api.temporal.cloud/v2/ipfs/private/stat/" + hash + "/" + networkName);
-    xhr_stat.setRequestHeader("Cache-Control", "no-cache");
-    xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
-    xhr_stat.send();
-};
-```
-
-> Example Response (200)
-
-```
-{
-  "code": 200,
-  "response": {
-    "Hash": "QmejvEPop4D7YUadeGqYWmZxHhLc4JBUCzJJHWMzdcMe2y",
-    "BlockSize": 12,
-    "CumulativeSize": 12,
-    "DataSize": 10,
-    "LinksSize": 2,
-    "NumLinks": 0
-  }
-}
-```
-
-`https://api.temporal.cloud/v2/ipfs/private/stat/:hash/:networkName`
-
-Retrieve information about an object (hash) on a private network.
-
-### Response (200)
-
-| Field | Type | Description
-|-----------|------|-------------
-| <b>Hash</b> | IPFS Hash | The hash requested.
-| <b>BlockSize</b> | Int | The ...
-| <b>CumulativeSize</b> | Int | The ...
-| <b>DataSize</b> | Int | The ...
-| <b>LinksSize</b> | Int | The ...
-| <b>NumLinks</b> | Int | The ...
-
-## GET uploads
-
-```go
-Golang code here.
-```
-
-```python
-Python code here.
-```
-
-```javascript
-handleUploads = (networkName) => () => {
-
-    let xhr_stat = new XMLHttpRequest();
-    xhr_stat.withCredentials = false;
-
-    xhr_stat.addEventListener("readystatechange", function () {
-
-        if (xhr_stat.readyState === 4) {
-
-            let result = JSON.parse(xhr_stat.responseText);
-
-            if (result.code === 200) {
-                console.log(result);
-            }
-
-            else {
-                // Error handling.
-            }
-        }
-    }.bind(this));
-
-    xhr_stat.open("GET", "https://api.temporal.cloud/v2/ipfs/private/uploads/" + networkName);
-    xhr_stat.setRequestHeader("Cache-Control", "no-cache");
-    xhr_stat.setRequestHeader("Authorization", "Bearer " + <JWT>);
-    xhr_stat.send();
-};
-```
-
-> Example Response (200)
-
-```
-{
-  "code": 200,
-  "response": [
-    {
-      "ID": 522,
-      "CreatedAt": "2018-12-20T20:19:41.383403Z",
-      "UpdatedAt": "2018-12-20T20:20:56.778709Z",
-      "DeletedAt": null,
-      "Hash": "QmYwwdB1X6aivm8me71EwWXFZjGtjkAmUuT9qEDQBZmdSk",
-      "Type": "file",
-      "NetworkName": "private_net_12222",
-      "HoldTimeInMonths": 2,
-      "UserName": "postables",
-      "GarbageCollectDate": "2019-02-20T20:19:41.382864Z",
-      "UserNames": [
-        "postables"
-      ],
-      "Encrypted": false
-    }
-  ]
-}
-```
-
-`https://api.temporal.cloud/v2/ipfs/private/uploads/:networkName`
-
-Retrieve uploads for a private network.
-
-### Response (200)
-
-| Field | Type | Description
-|-----------|------|-------------
-| <b>CreatedAt</b> | DateTime | Time the file was created.
-| <b>DeletedAt</b> | DateTime | Time the file was deleted.
-| <b>Encrypted</b> | Bool | Whether the file is encrypted or not.
-| <b>GarbageCollectDate</b> | DateTime | When the file will be deleted (or pinning stops).
-| <b>Hash</b> | IPFS Hash | The hash associated with your content.
-| <b>HoldTimeInMonths</b> | Int | Number of months your content is pinned.
-| <b>ID</b> | Int | The unique ID of your upload.
-| <b>NetworkName</b> | String | The private network your file was published on.
-| <b>Type</b> | String | The type of file you uploaded.
-| <b>UpdatedAt</b> | DateTime | Time the file was last updated.
-| <b>Username</b> | String | User that uploaded the file (<i>that's you</i>).
-| <b>Usernames</b> | Array[String] | Usernames that have access to the file (<i>for private networks</i>).
+| <b>username</b> | String | The username.
+| <b>password</b> | String | The associated password.
 
 ## GET authorized networks
 

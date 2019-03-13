@@ -10,8 +10,9 @@ language_tabs:
 includes:
   - ipfs/ipfs_api
   - ipfs/public_network
-  - ipfs/private_networks_primary
-  - ipfs/private_networks_utility
+  - ipfs/private_network_management
+  - ipfs/private_network_primary
+  - ipfs/utility
 
 slug: ipfs
 search: true

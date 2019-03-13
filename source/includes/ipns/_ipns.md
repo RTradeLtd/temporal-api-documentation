@@ -1,6 +1,6 @@
 # IPNS
 
-## POST public publish
+## POST publish record
 
 ```go
 Golang code here.
@@ -68,6 +68,44 @@ Publish IPNS records to the public network.
 | <b>ttl</b> | String | The time-to-live.
 | <b>key</b> | String | Name of the IPFS key.
 | <b>resolve</b> | Bool | Whether to resolve the IPNS record or not.
+
+## POST pin ipns
+
+```go
+Golang code here
+```
+
+```python
+Python code here
+```
+
+```javascript
+Javascript code here
+```
+
+> Example Response (200)
+
+```
+{
+    "code": 200,
+    "response": "pin request sent to backend"
+}
+```
+
+`https://api.temporal.cloud/api/v2/ipns/public/pin`
+
+Pins the current IPFS hash that the record resolves to. 
+
+<aside class="warning">
+For `ipns_path` you will want to provie a path like `/ipns/docs.api.temporal.cloud`
+</aside>
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>ipns_path</b> | IPFS Hash | The full path of the ipns record
+| <b>hold_time</b> | Int | Number of months to pin resolved hash
 
 
 ## GET records
