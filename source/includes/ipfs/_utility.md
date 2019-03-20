@@ -1,4 +1,4 @@
-# Public IPFS and Private IPFS Utility
+# Public And Private Utility
 
 ## POST download file
 

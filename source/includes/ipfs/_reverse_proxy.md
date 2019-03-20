@@ -1,0 +1,149 @@
+# IPFS HTTP API Proxy
+
+To use this endpoint, you will need to point your clients to one of the following endpoints:
+
+go-ipfs-api:
+
+1. `https://dev.api.temporal.cloud/v2/proxy`
+2. `https://dev.api.temporal.cloud:443/v2/proxy`
+
+js-ipfs-http-client and other libraries:
+
+1. `https://dev.api.temporal.cloud/v2/proxy/api/v0/`
+2. `https://dev.api.temporal.cloud:443/v2/proxy/api/v0/`
+
+The method by which you supply this may change depending on the exact IPFS HTTP API client you use, as most use the default api path of `/api/v0/`, which is different from Temporal's api path which is `/v2/proxy/api/v0/`. However this does not apply to `go-ipfs-api` which handles addressing a little differently
+
+The rest of this page will focus on specific examples of using our reverse proxy endpoint. Golang examples are done using a fork of [go-ipfs-api](https://github.com/RTradeLtd/go-ipfs-api) which allows using jwt's for authentication, while javascript examples are done using [js-ipfs-http-client](https://github.com/ipfs/js-ipfs-http-client).
+
+For a list of IPFS HTTP API calls that are white-listed when using this endpoint, please see the following [gist](https://gist.github.com/postables/55be1cf00e8ffafff6e663c198bf6482) which will be updated whenever calls are added/removed
+
+## POST pin add
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"os"
+
+	// fork of ipfs/go-ipfs-api which allows using jwt for authentication
+	ipfs "github.com/RTradeLtd/go-ipfs-api"
+	// helper library to login and authenticate with Temporal's HTTP API
+	thc "github.com/RTradeLtd/thc"
+)
+
+const (
+	temporalReverseProxy = "https://dev.api.temporal.cloud/v2/proxy"
+	exampleCID           = "QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv"
+)
+
+func main() {
+	temporalUser := os.Getenv("TEMPORAL_USER")
+	if temporalUser == "" {
+		log.Fatal("TEMPORAL_USER env var must not be empty")
+	}
+	temporalPass := os.Getenv("TEMPORAL_PASS")
+	if temporalPass == "" {
+		log.Fatal("TEMPORAL_PASS env var must not be empty")
+	}
+	// initialize a V2 Temporal API client
+	tClient := thc.NewV2(temporalUser, temporalPass, thc.DevURL)
+	// login with Temporal to generate the JWT
+	if err := tClient.Login(); err != nil {
+		fmt.Println("failed to login with error", err)
+		log.Fatal(err)
+	}
+	// get the JWT
+	jwt, err := tClient.GetJWT()
+	if err != nil {
+		log.Fatal(err)
+	}
+	// create a shell with the reverse proxy endpoint
+	// the difference between direct shell and the typical
+	// NewShell function, is that NewDirectShell won't fail
+	// if you provide an invalid multiaddr, this is different
+	// from js-ipfs-http-client which doesn't do this
+	shell := ipfs.NewDirectShell(temporalReverseProxy)
+	// WithAuthorization allows providing the JWT as a header in the http connection
+	// It returns a type `Shell` which you then call `Pin` on
+	if err := shell.WithAuthorization(jwt).Pin(exampleCID); err != nil {
+		fmt.Println("failed to pin with error", err)
+		log.Fatal(err)
+	}
+	fmt.Println("successfully pinned", exampleCID)
+}
+
+```
+
+```python
+Python code here.
+```
+
+```shell
+curl -X POST \
+  'https://dev.api.temporal.cloud:443/v2/proxy/api/v0/pin/add?arg=QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv&stream-channels=true' \
+  -H 'Authorization: Bearer <your-jwt-here>' \
+  -H 'cache-control: no-cache'
+```
+
+```http
+POST /v2/proxy/api/v0/pin/add?arg=QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv&stream-channels=true HTTP/1.1
+Host: dev.api.temporal.cloud
+User-Agent: curl/7.58.0
+Accept: */*
+Authorization: Bearer <jwt-omitted>
+cache-control: no-cache
+```
+
+```javascript
+var ipfsClient = require('ipfs-http-client')
+
+// example cid to pin
+var exampleCID = 'QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv'
+// TEMPORAL_JWT is an environment variable used to provide the jwt needed to authenticate with temoral
+// optionally, you could import https://github.com/clemlak/temporal-js and use the login function
+// to return the jwt
+var jwt = process.env.TEMPORAL_JWT
+
+// specify how we will connect the ipfs client
+var ipfs = ipfsClient({
+    // the hostname (or ip address) of the endpoint providing the ipfs api
+    host: 'dev.api.temporal.cloud',
+    // the port to connect on
+    port: '443',
+    // the api path, which on regular ipfs nodes is usually /api/v0
+    // because this is a reverse proxy, only calls to /v2/proxy/api/v0
+    'api-path': '/v2/proxy/api/v0/',
+    // the protocol, https for security
+    protocol: 'https',
+    // provide the jwt within an authorization header
+    headers: {
+        authorization: 'Bearer ' + jwt
+    }
+})
+
+// use the js-ipfs-http-client library to pin a particular CID
+// this will be procesed like any other IPFS API, however
+// it will be backed up by the infrastructure under Temporal.
+ipfs.pin.add(exampleCID, function (err, response) {
+    if (err) {
+        console.error(err, err.stack)
+        throw  err
+    }
+    console.log(response)
+})
+```
+
+> Example Response (200)
+
+```
+{
+    "Pins": [
+        "QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv"
+    ]
+}
+```
+
+Pin a file to IPFS by using the IPFS HTTP API reverse proxy endpoint.

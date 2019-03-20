@@ -1,4 +1,4 @@
-# Public Network
+# Public Network - Usage
 
 ## POST upload file
 

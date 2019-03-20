@@ -6,6 +6,14 @@ We have usage examples for Javascript and will add Python and Golang soon.
 
 You can view code examples to the right, and switch the programming language above.
 
+To access the development API use `https://dev.api.temporal.cloud` instead of `https://api.temporal.cloud`
+
+## IPFS HTTP API Reverse Proxy
+
+The development API for Temporal offers an experimental reverse proxy, that talks directly with the `IPFS HTTP API`, with a subset of commands allowed. Any calls that involve removing data, listing pinned data, and similar administrative calls aren't whitelisted.
+
+By using this endpoint, users may point any existing `IPFS HTTP API` client to the endpoint, most commonly this would be [js-ipfs-http-client](https://github.com/ipfs/js-ipfs-http-client) although any client that respects the `IPFS HTTP API` [specs](https://docs.ipfs.io/reference/api/http/) should work.
+
 ## Authentication
 
 Temporal uses JSON Web Tokens for authentication, accessed through the `POST login` call.

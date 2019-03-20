@@ -13,5 +13,5 @@ includes:
 
 slug: ipns
 search: true
-github_link: https://github.com/RTradeLtd/Temporal/blob/V2/api/v2/routes_ipns.go
+github_link: https://github.com/RTradeLtd/Temporal
 ---

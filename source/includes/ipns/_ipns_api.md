@@ -6,6 +6,8 @@ We have usage examples for Javascript and will add Python and Golang soon.
 
 You can view code examples to the right, and switch the programming language above.
 
+To access the development API use `https://dev.api.temporal.cloud` instead of `https://api.temporal.cloud`
+
 ## Authentication
 
 Temporal uses JSON Web Tokens for authentication, accessed through the `POST login` call.

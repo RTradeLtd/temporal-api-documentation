@@ -13,5 +13,5 @@ includes:
 
 slug: database
 search: true
-github_link: https://github.com/RTradeLtd/Temporal/blob/V2/api/v2/routes_database.go
+github_link: https://github.com/RTradeLtd/Temporal
 ---
