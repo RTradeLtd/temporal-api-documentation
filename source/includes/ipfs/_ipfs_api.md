@@ -10,9 +10,13 @@ To access the development API use `https://dev.api.temporal.cloud` instead of `h
 
 ## IPFS HTTP API Reverse Proxy
 
-The development API for Temporal offers an experimental reverse proxy, that talks directly with the `IPFS HTTP API`, with a subset of commands allowed. Any calls that involve removing data, listing pinned data, and similar administrative calls aren't whitelisted.
+Our IPFS HTTP API reverse proxy allows you to point any IPFS HTTP API compatible client to our system, and leverage all the benefits that Temporal provides as if you were using our proprietary API.
+
+It leverages an in-house built reverse proxy server to delivery responses 2x -> 2.92x quicker than a standard [httputil.ReverseProxy](https://golang.org/pkg/net/http/httputil/#ReverseProxy).
 
 By using this endpoint, users may point any existing `IPFS HTTP API` client to the endpoint, most commonly this would be [js-ipfs-http-client](https://github.com/ipfs/js-ipfs-http-client) although any client that respects the `IPFS HTTP API` [specs](https://docs.ipfs.io/reference/api/http/) should work.
+
+At the moment this is only available in development via the url `https://dev.api.ipfs.temporal.cloud`
 
 ## Authentication
 
