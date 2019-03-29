@@ -7,7 +7,7 @@ To access this endpoint, all you need to do is point your clients to `https://de
 
 For a list of IPFS HTTP API calls that are white-listed when using this endpoint, please see the following [gist](https://gist.github.com/postables/55be1cf00e8ffafff6e663c198bf6482) which will be updated whenever calls are added/removed
 
-## POST pin add
+## Example
 
 ```go
 package main
@@ -132,4 +132,4 @@ ipfs.pin.add(exampleCID, function (err, response) {
 }
 ```
 
-Pin a file to IPFS by using the IPFS HTTP API reverse proxy endpoint.
+This example demonstrates using the IPFS HTTP API endpoint to pin a file. Examples are given in javascript, golang, and using the curl command.
