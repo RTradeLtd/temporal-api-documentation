@@ -234,7 +234,7 @@ Stop a private network, preventing uploads and downloads.
 | <b>state</b> | String | The new state of the network ("stopped").
 
 
-## POST remove users
+## POST add users
 
 ```go
 Go
@@ -256,7 +256,10 @@ Javascript code here.
 > Example Response (200)
 
 ```
-TODO
+{
+    "code": 200,
+    "response": "authorized user list updated"
+}
 ```
 
 `https://api.temporal.cloud/v2/ipfs/private/network/users/add`
@@ -271,12 +274,7 @@ Used to add users who may access this private network
 | <b>users</b> | String Array | the user of users to add access for
 
 
-## POST remove users
-
-```go
-Go
-
-## DEL remove network
+## DEL remove users
 
 ```go
 Golang code here.
@@ -293,7 +291,10 @@ Javascript code here.
 > Example Response (200)
 
 ```
-TODO
+{
+    "code": 200,
+    "response": "authorized user list updated"
+}
 ```
 
 `https://api.temporal.cloud/v2/ipfs/private/network/users/remove`
