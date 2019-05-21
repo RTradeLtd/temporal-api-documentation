@@ -264,7 +264,7 @@ Javascript code here.
 
 `https://api.temporal.cloud/v2/ipfs/private/network/users/add`
 
-Used to add users who may access this private network
+Used to add a user or users from being able to access this private network. This API call works only for the creator of a network.
 
 ### Parameters
 
