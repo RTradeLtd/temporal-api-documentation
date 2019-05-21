@@ -266,7 +266,7 @@ Javascript code here
 
 `https://api.temporal.cloud/v2/payments/bch/create`
 
-Create a payment request to purchase credits with BCH (Bitcoin Cash).
+Create a payment request to purchase credits with BCH (Bitcoin Cash). You must send *exactly* the `charge_amount` in a single transaction to the specified deposit address. If you have enabled email notifications, you will receive an email when your payment is confirmed. Depending on the number of pending BCH payments being processed, it may take up to three hours. If your payment hasn't been confirmed within 24 hours, please send us an email indicating your username, and the payment number for the payment you are having troubles with.
 
 ### Parameters
 
@@ -301,7 +301,7 @@ Javascript code here
 
 `https://api.temporal.cloud/v2/payments/bch/confirm`
 
-Confirm your BCH payment by submitting the transaction hash. Once the transaction has been confirmed your account will be allocated the credits.
+Confirm your BCH payment by submitting the transaction hash, triggering processing of your payment.
 
 ### Parameters
 
