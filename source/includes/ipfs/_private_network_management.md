@@ -237,11 +237,6 @@ Stop a private network, preventing uploads and downloads.
 ## POST add users
 
 ```go
-Go
-
-## DEL remove network
-
-```go
 Golang code here.
 ```
 
@@ -264,14 +259,49 @@ Javascript code here.
 
 `https://api.temporal.cloud/v2/ipfs/private/network/users/add`
 
-Used to add a user or users from being able to access this private network. This API call works only for the creator of a network.
+Used to add a user or users from being able to access this private network. This API call may only be performed by owners of the network.
 
 ### Parameters
 
 | Field | Type | Description
 |-----------|------|-------------
 | <b>network_name</b> | String | The name of the network to modify permissions for
-| <b>users</b> | String Array | the user of users to add access for
+| <b>users</b> | String Array | The username(s) to add access for
+
+
+## POST add owners
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here.
+```
+
+> Example Response (200)
+
+```
+{
+    "code": 200,
+    "response": "network owners updated"
+}
+```
+
+`https://api.temporal.cloud/v2/ipfs/private/network/owners/add`
+
+Used to add a user or users as network owners. Network owners have access to management commands. Currently there is no support for removing owners.
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>network_name</b> | String | The name of the network to modify permissions for
+| <b>owners</b> | String Array | The username(s) to add as network owners
 
 
 ## DEL remove users
@@ -299,7 +329,7 @@ Javascript code here.
 
 `https://api.temporal.cloud/v2/ipfs/private/network/users/remove`
 
-Used to remove a user or users from being able to access this private network. This API call works only for the creator of a network.
+Used to remove a user or users from being able to access this private network. This API call may only be performed by owners of the network.
 
 
 ### Parameters
@@ -307,7 +337,7 @@ Used to remove a user or users from being able to access this private network. T
 | Field | Type | Description
 |-----------|------|-------------
 | <b>network_name</b> | String | The name of the network to modify permissions for
-| <b>users</b> | String Array | the user of users to remove access for
+| <b>users</b> | String Array | The username(s) to remove access for
 
 
 ## DEL remove network
@@ -448,45 +478,38 @@ handleNetwork = (networkName) => () => {
 
 ```
 {
-  "code": 200,
-  "response": {
-    "database": {
-      "ID": 55,
-      "CreatedAt": "2018-12-20T20:16:31.897258Z",
-      "UpdatedAt": "2018-12-20T20:16:43.837002Z",
-      "Name": "private_net_12222",
-      "APIURL": "192.168.1.243:5299",
-      "SwarmKey": "/key/swarm/psk/1.0.0/\n/base16/\nb4afbfa3b9e7903c1a8265dd6336c02339a53597fb19278873dda83d066c5b39",
-      "Users": [
-        "postables"
-      ],
-      "LocalNodePeerAddresses": null,
-      "LocalNodePeerIDs": null,
-      "BootstrapPeerAddresses": null,
-      "BootstrapPeerIDs": null,
-      "Activated": "2018-12-20T20:16:43.836162Z"
+    "code": 200,
+    "response": {
+        "database": {
+            "ID": 1,
+            "CreatedAt": "2019-05-21T22:52:30.685697Z",
+            "UpdatedAt": "2019-05-21T23:11:40.496366Z",
+            "Name": "private_net_12222",
+            "Activated": "2019-05-21T22:52:45.506688Z",
+            "Disabled": false,
+            "PeerKey": REDACTED,
+            "SwarmAddr": "192.168.1.201:12337",
+            "SwarmKey": "/key/swarm/psk/1.0.0/\n/base16/\n96a2d89244a03764436f3ab23b584e3b14ccbb2fd72db5b53afc38db6fa8759d",
+            "APIAllowedOrigin": "",
+            "GatewayPublic": false,
+            "BootstrapPeerAddresses": null,
+            "BootstrapPeerIDs": null,
+            "ResourcesCPUs": 0,
+            "ResourcesDiskGB": 0,
+            "ResourcesMemoryGB": 0,
+            "Owners": [
+                "postables",
+                "billybob"
+            ],
+            "Users": [
+                "postables",
+                "billybob"
+            ]
+        }
     }
-  }
 }
 ```
 
 `https://api.temporal.cloud/v2/ipfs/private/network/:name`
 
 Retrieve network statistics from a single private network.
-
-### Response (200)
-
-| Field | Type | Description
-|-----------|------|-------------
-| <b>ID</b> | Int | The unique ID of your upload.
-| <b>CreatedAt</b> | DateTime | Time the network was created.
-| <b>DeletedAt</b> | DateTime | Time the network was deleted.
-| <b>Name</b> | String | Name of the private network.
-| <b>APIURL</b> | String | The ...
-| <b>SwarmKey</b> | String | The private network your file was published on.
-| <b>Users</b> | Array[String] | Usernames that have access to the file (<i>for private networks</i>).
-| <b>LocalNodePeerAddresses</b> | Array[String] | The ...
-| <b>LocalNodePeerIDs</b> | Array[String] | The ...
-| <b>BootstrapPeerAddresses</b> | Array[String] | The ...
-| <b>BootstrapPeerIDs</b> | Array[String] | The ...
-| <b>Activated</b> | DateTime | Time the network was last activated.
