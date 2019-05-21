@@ -168,7 +168,7 @@ Confirm your eth or rtc payment after sending a transaction on the blockchain.
 | <b>payment_number</b> | String | The unique number associated with your payment.
 | <b>tx_hash</b> | String | The transaction hash associated with the transaction you sent through Ethereum.
 
-## POST create dash payment
+## POST create DASH payment
 
 ```go
 Golang code here.
@@ -229,35 +229,6 @@ Create a payment request to purchase credits with DASH.
 | Field | Type | Description
 |-----------|------|-------------
 | <b>credit_value</b> | String | The amount of credits you want to purchase.
-
-## POST stripe charge
-
-```go
-Golang code here
-```
-
-```python
-Python code here
-```
-
-```javascript
-javascript code here
-```
-
-> Example Response (200)
-
-```
-{
-  // Need example response
-}
-```
-
-`https://api.temporal.cloud/v2/payments/stripe/charge`
-
-Calls the Temporal backend to process, and place a charge against a credit card to purchase Credits. All purchasing is done with a currency value of USD.
-
-<b>Note:</b> We utilize <b><a href="https://stripe.com/" target="_blank">Stripe</a></b> for all credit card payments.
-</aside>
 
 ### Parameters
 
@@ -338,6 +309,35 @@ Confirm your BCH payment by submitting the transaction hash. Once the transactio
 |-----------|------|-------------
 | <b>tx_hash</b> | String | The transaction hash of the payment
 | <b>payment_number</b> | Int | The payment number this transaction is for
+
+## POST create stripe payment
+
+```go
+Golang code here
+```
+
+```python
+Python code here
+```
+
+```javascript
+javascript code here
+```
+
+> Example Response (200)
+
+```
+{
+  // Need example response
+}
+```
+
+`https://api.temporal.cloud/v2/payments/stripe/charge`
+
+Calls the Temporal backend to process, and place a charge against a credit card to purchase Credits. All purchasing is done with a currency value of USD.
+
+<b>Note:</b> We utilize <b><a href="https://stripe.com/" target="_blank">Stripe</a></b> for all credit card payments.
+</aside>
 
 ## GET payment status
 
