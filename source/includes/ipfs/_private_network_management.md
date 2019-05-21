@@ -233,6 +233,82 @@ Stop a private network, preventing uploads and downloads.
 | <b>network_name</b> | String | The network that was started.
 | <b>state</b> | String | The new state of the network ("stopped").
 
+
+## POST remove users
+
+```go
+Go
+
+## DEL remove network
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here.
+```
+
+> Example Response (200)
+
+```
+TODO
+```
+
+`https://api.temporal.cloud/v2/ipfs/private/network/users/add`
+
+Used to add users who may access this private network
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>network_name</b> | String | The name of the network to modify permissions for
+| <b>users</b> | String Array | the user of users to add access for
+
+
+## POST remove users
+
+```go
+Go
+
+## DEL remove network
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here.
+```
+
+> Example Response (200)
+
+```
+TODO
+```
+
+`https://api.temporal.cloud/v2/ipfs/private/network/users/remove`
+
+Used to remove a user or users from being able to access this private network. This API call works only for the creator of a network.
+
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>network_name</b> | String | The name of the network to modify permissions for
+| <b>users</b> | String Array | the user of users to remove access for
+
+
 ## DEL remove network
 
 ```go
@@ -268,8 +344,7 @@ Network deletion will not work if your private network is running. Ensure you ha
 
 | Field | Type | Description
 |-----------|------|-------------
-| <b>username</b> | String | The username.
-| <b>password</b> | String | The associated password.
+| <b>network_name</b> | String | The name of the network to remove.
 
 ## GET authorized networks
 
