@@ -266,7 +266,7 @@ Used to add a user or users from being able to access this private network. This
 | Field | Type | Description
 |-----------|------|-------------
 | <b>network_name</b> | String | The name of the network to modify permissions for
-| <b>users</b> | String Array | The username(s) to add access for
+| <b>users</b> | Array[String] | The username(s) to add access for
 
 
 ## POST add owners
@@ -301,7 +301,7 @@ Used to add a user or users as network owners. Network owners have access to man
 | Field | Type | Description
 |-----------|------|-------------
 | <b>network_name</b> | String | The name of the network to modify permissions for
-| <b>owners</b> | String Array | The username(s) to add as network owners
+| <b>owners</b> | Array[String] | The username(s) to add as network owners
 
 
 ## DEL remove users
@@ -337,7 +337,7 @@ Used to remove a user or users from being able to access this private network. T
 | Field | Type | Description
 |-----------|------|-------------
 | <b>network_name</b> | String | The name of the network to modify permissions for
-| <b>users</b> | String Array | The username(s) to remove access for
+| <b>users</b> | Array[String] | The username(s) to remove access for
 
 
 ## DEL remove network
