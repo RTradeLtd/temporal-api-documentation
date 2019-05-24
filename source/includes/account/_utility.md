@@ -92,13 +92,16 @@ xhr.send(data);
 
 ```
 {
-  // Need example response.
+    "expire": "2019-05-25T01:25:55Z",
+    "token": "eyJhbGciOiJIUzI1.....5h0s6xM"
 }
 ```
 
 `https://api.temporal.cloud/v2/auth/refresh`
 
-This allows a user to refresh their JWT before the expiration data of 24 hours, preventing them having to generate a new JWT.
+This call can be used to re-authenticate with the API without needing to provide a username and password, however it must be done within the lifetime of your current JWT.
+
+The response to this call contains a new token that may be used instead of your current token. This newly generated token is valid for another 24 hours.
 
 ## GET usage data
 
