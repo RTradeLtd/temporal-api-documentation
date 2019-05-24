@@ -74,11 +74,13 @@ For uploading files to private networks, see
 | <b>file</b> | File (Blob) | The file you intend to upload.
 | <b>hold_time</b> | Int | Number of months to pin the file.
 
+
 ### Optional Parameters
 
 | Field | Type | Description
 |-------|------|-------------
 | <b>passphrase</b> | String | optional parameter used to encrypt upload.
+| <b>hash_type</b> | String | Specify a non-default multihash to use, like sha3-256
 
 ## POST upload directory
 
