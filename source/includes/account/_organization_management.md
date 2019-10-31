@@ -215,4 +215,12 @@ Javascript code here.
 
 `https://api.temporal.cloud/v2/org/get/billing/report`
 
-Returns a billing report of all users, uploads, and currently active storage costs for the specified date range.
+Returns a billing report of all users, uploads, and currently active storage costs for the specified date range. If you specify 30 for `number_of_days` then we will get the last 30 days from when the API call is processed. If you specify 5, then we will get the last 5 days from when the API call is processed.
+
+The idea behind this is that you can stay up to date with the usage of your organization accounts, and not have any surprises when we send you the invoice.
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>number_of_days</b> | Integer | The amount of days to cover in report
