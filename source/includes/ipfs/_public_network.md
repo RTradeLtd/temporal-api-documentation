@@ -200,7 +200,7 @@ Javascript code here
 
 `https://api.temporal.cloud/v2/ipfs/public/pin/:hash/extend`
 
-Used to extend the hold time of an existing IPFS pin of yours, up to the specified number of months. The total hold time for free accounts must be 1 month (including after extension), while non-free accounts is 2 years (including after extension)
+Used to extend the hold time of an existing IPFS pin of yours, up to the specified number of months. The total hold time for free accounts must be 1 month (including after extension), while paid accounts is 2 years (including after extension)
 
 ### Parameters
 

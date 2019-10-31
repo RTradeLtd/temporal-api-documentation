@@ -15,7 +15,7 @@ Our IPFS HTTP APIs reverse proxy allows you to talk directly to the IPFS node AP
 
 This endpoint is compatible with a majority of the IPFS HTTP API libraries, such as [js-ipfs-http-client](https://github.com/ipfs/js-ipfs-http-client). If you want to use `go-ipfs-api`, we maintain a [fork](https://github.com/RTradeLtd/go-ipfs-api) that allows you to insert an authentication header with your API calls.
 
-This feature is experimental, and only available in the development environment. To access this feature, point your clients to `https://dev.api.ipfs.temporal.cloud`
+To access this feature, point your clients to `https://api.ipfs.temporal.cloud`
 
 ## Authentication
 
@@ -58,8 +58,8 @@ Methods that take input will validate all parameters. Any parameter that fails v
 
 ## Hold Times
 
-Hold times are used to indicate how many months a file, or pin should be held onto by our nodes. Free accounts are limited to 1 month maximum pin times, while non-free accounts are limited to 2 month maximum pin times.
+Hold times are used to indicate how many months a file, or pin should be held onto by our nodes. Free accounts are limited to 1 month maximum pin times, while non-free accounts are limited to 2 year maximum pin times.
 
 ## Upload Sizes
 
-When uploading files, all accounts are limited to a 1GB max file size. When encrypting files, free accounts are limited to a maximum file size of 275MB, while non-free accounts are limited to 1GB.
+When uploading files, all accounts are limited to a 2GB max file size. When encrypting files, free accounts are limited to a maximum file size of 275MB, while non-free accounts are limited to 2GB.

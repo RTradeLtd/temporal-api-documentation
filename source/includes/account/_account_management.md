@@ -262,7 +262,7 @@ Javascript code here
 
 `https://api.temporal.cloud/v2/account/upgrade`
 
-Used to upgrade your account from free tier to the first non-free tier known as `Light`. When upgrading from a free account you are not eligible to downgrade your account. When upgrading your account, we allocate free $0.115USD worth of your credits, enough to pay for 0.5GB of storage for 1 month.
+Used to upgrade your account from the free tier to the non-free tier known as `Paid`. After upgrading you are not allowed to downgrade and this is an irreversible action. Only in rare circumstances wil we allow individuals to downgrade.
 
 ## GET credits
 
