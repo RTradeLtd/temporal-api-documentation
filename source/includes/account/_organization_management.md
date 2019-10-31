@@ -202,9 +202,17 @@ Javascript code here.
 > Example Response (200)
 
 ```
-TODO(postables): add
+{
+    "code": 200,
+    "response": {
+        "org_name": "myTestOrganizationnnnn",
+        "items": null,
+        "amount_due": 0,
+        "time": 1572495932811044601
+    }
+}
 ```
 
-`https://api.temporal.cloud/v2/org/get/model`
+`https://api.temporal.cloud/v2/org/get/billing/report`
 
 Returns a billing report of all users, uploads, and currently active storage costs for the specified date range.
