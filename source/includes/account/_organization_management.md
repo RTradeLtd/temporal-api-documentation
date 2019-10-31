@@ -4,19 +4,6 @@ Temporal enables groups of accounts called Organizations. Instead of each accoun
 
 Each user account is allowed to create at most 1 organization. To create an organization you user account must be partner tier. To become a partner account your user account must be manually upgraded by an RTrade team member. Thus user accounts registered underneath an organization are prevented from creating an organization themselves. So dont go trying to game the system for free storage, it just wont happen ;)
 
-```
-	org := v2.Group("/org", authware...)
-	{
-		get := org.Group("/get")
-		{
-			get.GET("/model", api.getOrganization)
-			get.GET("/billing/report", api.getOrgBillingReport)
-		}
-		org.POST("/register/user", api.registerOrgUser)
-	}
-```
-
-
 ## POST new organization
 
 ```go
@@ -159,3 +146,65 @@ Registers your information for the `POST login` call, which is used to generate 
 | <b>IPFSKeyIDs</b> | Array[String] | IPFS key values associated with your account.
 | <b>IPFSNetworkNames</b> | Array[String] | Private IPFS networks associated with your account.
 | <b>Status</b> | String | Terms And Service link
+
+## GET organization
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here.
+```
+
+> Example Response (200)
+
+```
+{
+    "code": 200,
+    "response": {
+        "ID": 6,
+        "CreatedAt": "2019-10-31T01:14:00.062643Z",
+        "UpdatedAt": "2019-10-31T01:16:57.868267Z",
+        "DeletedAt": null,
+        "Name": "myTestOrganizationnnnn",
+        "UserOwner": "postables",
+        "AccountBalance": 0,
+        "RegisteredUsers": [
+            "postables+org99999"
+        ]
+    }
+}
+```
+
+`https://api.temporal.cloud/v2/org/get/model`
+
+Returns the associated organization model.
+
+## GET billing report
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here.
+```
+
+> Example Response (200)
+
+```
+TODO(postables): add
+```
+
+`https://api.temporal.cloud/v2/org/get/model`
+
+Returns a billing report of all users, uploads, and currently active storage costs for the specified date range.
