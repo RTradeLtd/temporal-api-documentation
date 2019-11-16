@@ -183,7 +183,7 @@ Javascript code here.
 
 `https://api.temporal.cloud/v2/org/get/model`
 
-Returns the associated organization model.
+Returns the organization model associated with the accont. Note that this can only be ran by the `UserOwner` of an organization. If an account that is part of an organization which is not the `UserOwner` calls this, an error will be returned.
 
 ## GET billing report
 
