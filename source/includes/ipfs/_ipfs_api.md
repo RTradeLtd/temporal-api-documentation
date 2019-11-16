@@ -7,7 +7,13 @@ We have usage examples for Javascript and will add Python and Golang soon.
 
 You can view code examples to the right, and switch the programming language above.
 
-To access the development API use `https://dev.api.temporal.cloud` instead of `https://api.temporal.cloud`
+To access the development API use the following url:
+
+* https://dev.api.temporal.cloud
+
+Should you wish to access the production API  use the following url:
+
+* https://api.temporal.cloud
 
 ## IPFS HTTP API
 

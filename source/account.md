@@ -13,6 +13,7 @@ includes:
   - account/recovery
   - account/keys
   - account/utility
+  - account/organization_management
 
 slug: account
 search: true

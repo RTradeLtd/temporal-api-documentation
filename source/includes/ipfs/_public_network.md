@@ -103,7 +103,9 @@ Python code here.
 
 `https://api.temporal.cloud/v2/ipfs/public/file/add/directory`
 
-Used to upload a directory to IPFS, particularly useful for hosting websites. The directory **must** first be zipped, with a `.zip` extension, and that zip file is what you must upload. The total uncompressed size of the zip file must be no larger than the maximum upload limit, which is currently 1GB
+Used to upload a directory to IPFS, particularly useful for hosting websites. The directory **must** first be zipped, with a `.zip` extension, and that zip file is what you must upload. The total uncompressed size of the zip file must be no larger than the maximum upload limit, which is currently 2GB.
+
+Please note that this call is not available in production, and is only available in development environments. It is recommended you use the IPFS HTTP API to upload directories.
 
 ### Parameters
 
