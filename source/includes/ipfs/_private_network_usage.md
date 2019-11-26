@@ -215,6 +215,7 @@ Pin a hash to a private network. This hash *must* be discoverable by the private
 | <b>hash</b> | IPFS Hash | The specific hash to pin.
 | <b>hold_time</b> | Int | Number of months to pin the hash.
 | <b>network_name</b> | String | Number of months to pin the hash.
+| <b>file_name</b> | String | optional filename to name the pin with.
 
 ## POST pubsub
 
