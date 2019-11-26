@@ -82,39 +82,6 @@ For uploading files to private networks, see
 | <b>passphrase</b> | String | optional parameter used to encrypt upload.
 | <b>hash_type</b> | String | Specify a non-default multihash to use, like sha3-256
 
-## POST upload directory
-
-```go
-Golang code here.
-```
-
-```python
-Python code here.
-```
-
-```javascript
-```
-
-> Example Response (200)
-
-```
-> add example respone
-```
-
-`https://api.temporal.cloud/v2/ipfs/public/file/add/directory`
-
-Used to upload a directory to IPFS, particularly useful for hosting websites. The directory **must** first be zipped, with a `.zip` extension, and that zip file is what you must upload. The total uncompressed size of the zip file must be no larger than the maximum upload limit, which is currently 2GB.
-
-Please note that this call is not available in production, and is only available in development environments. It is recommended you use the IPFS HTTP API to upload directories.
-
-### Parameters
-
-| Field | Type | Description
-|-----------|------|-------------
-| <b>file</b> | File (Blob) | The *zipped* file of the directory you want to upload
-| <b>hold_time</b> | Int | Number of months to pin the file.
-
-
 ## POST pin hash
 
 ```go
@@ -175,7 +142,7 @@ Pin an IPFS hash through Temporal, storing for the specified number of months. T
 |-----------|------|-------------
 | <b>hash</b> | IPFS Hash | The specific hash to pin.
 | <b>hold_time</b> | Int | Number of months to pin the hash.
-
+| <b>file_name</b> | String | optional filename to name the pin with.
 
 ## POST extend pin
 
