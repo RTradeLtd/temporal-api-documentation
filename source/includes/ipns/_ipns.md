@@ -92,7 +92,7 @@ Javascript code here
 }
 ```
 
-`https://api.temporal.cloud/api/v2/ipns/public/pin`
+`https://api.temporal.cloud/v2/ipns/public/pin`
 
 Pins the current IPFS hash that the record resolves to. 
 
@@ -187,7 +187,7 @@ xhr.send();
 }
 ```
 
-`https://api.temporal.cloud/api/v2/ipns/records`
+`https://api.temporal.cloud/v2/ipns/records`
 
 Lists all IPNS records you've published to public and private networks.
 
