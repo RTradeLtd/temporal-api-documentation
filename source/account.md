@@ -14,6 +14,7 @@ includes:
   - account/keys
   - account/utility
   - account/organization_management
+  - account/ens
 
 slug: account
 search: true
