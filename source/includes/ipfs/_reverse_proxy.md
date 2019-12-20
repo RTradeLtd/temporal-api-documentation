@@ -10,7 +10,7 @@ Endpoint URLs:
 * Production `https://api.ipfs.temporal.cloud`
 * Development `https://dev.api.ipfs.temporal.cloud`
 
-For a list of IPFS HTTP API calls that are white-listed when using this endpoint, please see the following [gist](https://gist.github.com/postables/55be1cf00e8ffafff6e663c198bf6482) which will be updated whenever calls are added/removed.
+For a list of IPFS HTTP API calls that are white-listed when using this endpoint, please see the following [gist](https://gist.github.com/bonedaddy/55be1cf00e8ffafff6e663c198bf6482) which will be updated whenever calls are added/removed.
 
 Usage of this API is tied into the billing system of Temporal, so you will need a valid Temporal account to use this API. Any API calls that involve storing data, such as `object/new`, `object/set-data`, `dag/put`, etc.. will trigger pinning of the data for **1 month**. 
 

@@ -17,7 +17,7 @@ Should you wish to access the production API  use the following url:
 
 ## IPFS HTTP API
 
-Our IPFS HTTP APIs reverse proxy allows you to talk directly to the IPFS node API. Requests to this API are whitelisted on a per command basis. To see a list of all valid commands, they are updated on a [gist](https://gist.github.com/postables/55be1cf00e8ffafff6e663c198bf6482).
+Our IPFS HTTP APIs reverse proxy allows you to talk directly to the IPFS node API. Requests to this API are whitelisted on a per command basis. To see a list of all valid commands, they are updated on a [gist](https://gist.github.com/bonedaddy/55be1cf00e8ffafff6e663c198bf6482).
 
 This endpoint is compatible with a majority of the IPFS HTTP API libraries, such as [js-ipfs-http-client](https://github.com/ipfs/js-ipfs-http-client). If you want to use `go-ipfs-api`, we maintain a [fork](https://github.com/RTradeLtd/go-ipfs-api) that allows you to insert an authentication header with your API calls.
 
