@@ -147,6 +147,53 @@ Registers your information for the `POST login` call, which is used to generate 
 | <b>IPFSNetworkNames</b> | Array[String] | Private IPFS networks associated with your account.
 | <b>Status</b> | String | Terms And Service link
 
+## POST organization user uploads
+
+```go
+Golang code here.
+```
+
+```python
+Python code here.
+```
+
+```javascript
+Javascript code here.
+```
+
+> Example Response (200)
+
+```
+TODO
+```
+
+`https://api.temporal.cloud/v2/org/user/uploads`
+
+Allows viewing the uploads for any given user in your organization, ad is the equivalent of the `get uploads` database call. Currently this call is limited to viewing one organization user at a time, but it's easily scriptable.
+
+Because the payload from this API can be quite large, there are two ways to control the response:
+
+* Paginated results
+* Complete user uploads returned as downloadable csv file
+
+The parameters `page`, and `limit` are optional, and only have an effect when `as_csv` is set to false. When `as_csv` is set to false, and you do not provide `page` or `limit` the following defaults are used:
+
+* `page` set to 1
+* `limit` set to 10
+
+To trigger paginated responses, leave `as_csv` empty, or set it to `false`. To trigger a downloadable csv file containing all the user's uploads, set `as_csv` to `true`.
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>name</b> | String | The name of the organization
+| <b>user</b> | String | The name of the user to search for
+| <b>as_csv</b> | Bool | When set to `true` the response comes as the csv file
+| <i>page</i> | Integer | Upload page to start at (1 = first page) - optional
+| <i>limit</i> | Integer | Maximum number of uploads to return - optional
+
+
 ## GET organization
 
 ```go
@@ -184,6 +231,12 @@ Javascript code here.
 `https://api.temporal.cloud/v2/org/get/model`
 
 Returns the organization model associated with the accont. Note that this can only be ran by the `UserOwner` of an organization. If an account that is part of an organization which is not the `UserOwner` calls this, an error will be returned.
+
+### Parameters
+
+| Field | Type | Description
+|-----------|------|-------------
+| <b>name</b> | String | The name of the organization.
 
 ## GET billing report
 
@@ -223,4 +276,5 @@ The idea behind this is that you can stay up to date with the usage of your orga
 
 | Field | Type | Description
 |-----------|------|-------------
+| <b>name</b> | String | The name of the organization
 | <b>number_of_days</b> | Integer | The amount of days to cover in report
