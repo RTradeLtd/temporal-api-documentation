@@ -147,7 +147,7 @@ Registers your information for the `POST login` call, which is used to generate 
 | <b>IPFSNetworkNames</b> | Array[String] | Private IPFS networks associated with your account.
 | <b>Status</b> | String | Terms And Service link
 
-## POST organization user uploads
+## POST user uploads
 
 ```go
 Golang code here.
