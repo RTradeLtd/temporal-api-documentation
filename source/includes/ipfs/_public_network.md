@@ -43,7 +43,7 @@ handleUpload = (file, holdtime) => {
 };
 ```
 
-> 回应例子 (200)
+> 回应示例 (200)
 
 ```
 {
@@ -113,7 +113,7 @@ handlePinFile = (ipfsHash, holdTime) => () => {
 };
 ```
 
-> 回应例子 (200)
+> 回应示例 (200)
 
 ```
 {
@@ -148,7 +148,7 @@ Python code here.
 Javascript code here
 ```
 
-> 回应例子 (200)
+> 回应示例 (200)
 
 ```
 {
@@ -212,7 +212,7 @@ handlePubSub = (message, topic) => () => {
 };
 ```
 
-> 回应例子 (200)
+> 回应示例 (200)
 
 ```
 {
@@ -280,7 +280,7 @@ handleObject = (hash) => () => {
 };
 ```
 
-> 回复例子 (200)
+> 回复示例 (200)
 
 ```
 {

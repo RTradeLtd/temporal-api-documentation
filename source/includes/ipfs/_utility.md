@@ -1,6 +1,6 @@
-# Public And Private Utility
+# 功能应用
 
-## POST download file
+## POST 下载文件
 
 ```go
 Golang code here.
@@ -50,26 +50,26 @@ handleDownload = (ipfsHash, networkName) => () => {
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     // Use xhr.send() if not supplying a private networkName.
-    xhr.send(data); 
+    xhr.send(data);
 };
 ```
 
 `https://api.temporal.cloud/v2/ipfs/utils/download/:hash`
 
-Downloads content from the public IPFS network through temporal. Can also be used to download from a private network that the user has access to.
+通过七巧云从公共IPFS网络下载文件，也可以用于用户从专用网络下载。
 
-<aside class="warning">
-When downloading a file from a private network, please ensure the network is running.
+<aside class ="warning">
+从专用网络下载文件时，请确保网络可以使用。
 </aside>
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>network_name</b> | String | The private network to download a file from (optional)
-| <b>decrypt_key</b> | String | the passphrase used to decrypt an encrypted file before Temporal sends it to you (optional)
+| <b>network_name</b> | 字串| 专用网络名称（可选）
+| <b>decrypt_key</b> | 字串| 解密密码（可选）
 
-## POST beam
+## POST 束移
 
 ```go
 Golang code here.
@@ -114,7 +114,7 @@ handleBeam = (sourceNetwork, destinationNetwork, hash, passphrase) => () => {
 };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -125,17 +125,17 @@ handleBeam = (sourceNetwork, destinationNetwork, hash, passphrase) => () => {
 
 `https://api.temporal.cloud/v2/ipfs/utils/laser/beam`
 
-Transfer content between two different IPFS networks.
+在两个不同的专用IPFS网络之间传输内容。
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>source_network</b> | String | The network to copy content from.
-| <b>destination_network</b> | String | The network to copy content to.
-| <b>content_hash</b> | IPFS Hash | The content to hash.
-| <b>passphrase</b>* | String | Passphrase to encrypt the content with.
+| <b>source_network</b> | 字串| 读取内容的网络。
+| <b>destination_network</b> | 字串| 要复制到的网络。
+| <b>content_hash</b> | IPFS哈希| 内容的哈希值。
+| <b>passphrase</b>* | 字串| 可选，使用密码来加密内容。
 
 <aside class="warning">
-*Optional parameter. If you supply a passphrase, the content will be encrypted during transfer before uploading to the destination network
+*可选参数。 如果提供密码，则内容将在传输过程中加密，然后再上传到目标网络
 </aside>
