@@ -1,6 +1,6 @@
-# Public Network - Usage
+## 公共网络 - 使用方法
 
-## POST upload file
+## POST上传文件
 
 ```go
 Golang code here.
@@ -43,7 +43,7 @@ handleUpload = (file, holdtime) => {
 };
 ```
 
-> Example Response (200)
+> 回应例子 (200)
 
 ```
 {
@@ -54,35 +54,25 @@ handleUpload = (file, holdtime) => {
 
 `https://api.temporal.cloud/v2/ipfs/public/file/add`
 
-Uploads a file to the public network with optional encryption, and pins it for the specified number of months. When encrypting the file, it is impossible for Temporal to assist with recovery as we do not store the password.
+可上传文件到公共网络，并将其固定指定的月数。 如果使用加密功能，丢失的密码七巧云无法协助恢复，因为我们不存储密码。
 
-The response is an IPFS hash that is publicly accessible.
+得到的回应是可公开访问的IPFS哈希值。
 
-<aside class="success">
-This API endpoint is used for uploading files to <b>public</b> networks only.
-</aside>
+### 参数
 
-<aside class="warning">
-For uploading files to private networks, see
-<b><a href="#post-upload-file13">POST upload file</a></b> underneath <b>Private Networks - Primary</b>.
-</aside>
-
-### Parameters
-
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>file</b> | File (Blob) | The file you intend to upload.
-| <b>hold_time</b> | Int | Number of months to pin the file.
+| <b>file</b> | 文件（blob）| 您打算上传的文件。
+| <b>hold_time</b> | 整数 | 固定文件的月数。
 
+### 可选参数
 
-### Optional Parameters
-
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-------|------|-------------
-| <b>passphrase</b> | String | optional parameter used to encrypt upload.
-| <b>hash_type</b> | String | Specify a non-default multihash to use, like sha3-256
+| <b>passphrase</b>| 字串 | 用于加密上传的可选参数。
+| <b>hash_type</b> | 字串 | 指定要使用的 multihash 哈希公式，例如 sha3-256
 
-## POST pin hash
+## POST 哈希固定
 
 ```go
 Golang code here.
@@ -123,7 +113,7 @@ handlePinFile = (ipfsHash, holdTime) => () => {
 };
 ```
 
-> Example Response (200)
+> 回应例子 (200)
 
 ```
 {
@@ -134,17 +124,17 @@ handlePinFile = (ipfsHash, holdTime) => () => {
 
 `https://api.temporal.cloud/v2/ipfs/public/pin/:hash`
 
-Pin an IPFS hash through Temporal, storing for the specified number of months. This is used when you want content that already exists on IPFS to be persistently stored and guaranteed to be available for the specified duration. 
+通过七巧云固定IPFS哈希，存储指定的月份数。 当您希望永久存储IPFS上已经存在的内容并保证在指定的持续时间内可用时，可以使用此功能。
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>hash</b> | IPFS Hash | The specific hash to pin.
-| <b>hold_time</b> | Int | Number of months to pin the hash.
-| <b>file_name</b> | String | optional filename to name the pin with.
+| <b>hash</b>  | IPFS哈希| 要固定的哈希值。
+| <b>hold_time</b> | 整数 | 固定哈希值的月数。
+| <b>file_name</b> | 字串 | 可选的文件名，用于命名固定。
 
-## POST extend pin
+## POST 增加固定时间
 
 ```go
 Golang code here.
@@ -158,7 +148,7 @@ Python code here.
 Javascript code here
 ```
 
-> Example Response (200)
+> 回应例子 (200)
 
 ```
 {
@@ -169,14 +159,14 @@ Javascript code here
 
 `https://api.temporal.cloud/v2/ipfs/public/pin/:hash/extend`
 
-Used to extend the hold time of an existing IPFS pin of yours, up to the specified number of months. The total hold time for free accounts must be 1 month (including after extension), while paid accounts is 2 years (including after extension)
+用于将您现有的 IPFS 固定时间延长至指定的月份数。 免费用户的总固定时间只能是1个月（包括延期后），而付费用户为2年（包括延期后）
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 领域 | 类型 | 描述
 |-----------|------|-------------
-| <b>hash</b> | IPFS Hash | The specific hash to pin.
-| <b>hold_time</b> | Int | Number of months to pin the hash.
+| <b>hash</b> | IPFS 哈希 | 要固定的特定哈希值。
+| <b>hold_time</b> | 整数 | 要固定的月数。
 
 
 ## POST pubsub
@@ -222,7 +212,7 @@ handlePubSub = (message, topic) => () => {
 };
 ```
 
-> Example Response (200)
+> 回应例子 (200)
 
 ```
 {
@@ -236,20 +226,20 @@ handlePubSub = (message, topic) => () => {
 
 `https://api.temporal.cloud/v2/ipfs/public/pubsub/publish/:topic`
 
-Publish a message to the given PubSub topic.
+将消息发布到指定的 PubSub 主题。
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>message</b> | String | The message to publish.
+| <b>message</b> | 字串 | 要发布的消息。
 
-### Response (200)
+### 回应（200）
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>message</b> | String | The message you published.
-| <b>topic</b> | String | The topic you published the message to.
+| <b>message</b> | 字串 | 您发布的消息。
+| <b>topic</b> | 字串 | 您发布到的主题。
 
 ## GET object stats
 
@@ -290,7 +280,7 @@ handleObject = (hash) => () => {
 };
 ```
 
-> Example Response (200)
+> 回复例子 (200)
 
 ```
 {
@@ -308,11 +298,11 @@ handleObject = (hash) => () => {
 
 `https://api.temporal.cloud/v2/ipfs/public/stat/:hash`
 
-Retrieve information about an IPFS hash.
+检索一个 IPFS 哈希的信息。
 
-### Response (200)
+### 回应 (200)
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>Hash</b> | IPFS Hash | The hash requested.
 | <b>BlockSize</b> | Int | The ...
@@ -445,11 +435,11 @@ handleDAG = (hash) => () => {
 
 `https://api.temporal.cloud/v2/ipfs/public/dag/:hash`
 
-Retrieves the associated IPLD object for a given CID.
+读取一个CID的IPLD对象。
 
-### Response (200)
+### 回应 (200)
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>data</b> | String | The ...
 | <b>Cid</b> | String | The ...
