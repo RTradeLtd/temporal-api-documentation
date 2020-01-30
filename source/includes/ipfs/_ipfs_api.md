@@ -25,7 +25,7 @@
 
 ## 身份验证
 
-星遂云使用 JSON Web Tokens 进行身份验证，可通过`POST login`来访问。
+七巧云使用 JSON Web Tokens 进行身份验证，可通过`POST login`来访问。
 
 在本文档的所有代码示例中，您将看到`<JWT>`，它指示您应该提供由`POST login`命令生成的 JWT。
 
