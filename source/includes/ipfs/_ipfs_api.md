@@ -61,22 +61,12 @@
 }
 ```
 
-Methods that take input will validate all parameters. Any parameter that fails validation will trigger an error response with status `400`. The response body will be a JSON object that includes a message as well as a list of fields that failed validation.
+服务对接受的所有参数都进行验证。 如果验证失败，触发触发状态为`400`的错误响应。 响应主体将是一个JSON对象，其中包括一条消息以及未通过验证的参数列表。
 
-## Hold Times
+## 保留时间
 
-Hold times are used to indicate how many months a file, or pin should be held onto by our nodes. Free accounts are limited to 1 month maximum pin times, while non-free accounts are limited to 2 year maximum pin times.
-
-## Upload Sizes
-
-When uploading files, all accounts are limited to a 2GB max file size. When encrypting files, free accounts are limited to a maximum file size of 275MB, while non-free accounts are limited to 2GB.
-
-接受输入的方法将验证所有参数。 验证失败的任何参数都将触发状态为“ 400”的错误响应。 响应主体将是一个JSON对象，其中包括一条消息以及未通过验证的字段列表。
-
-## 举行时间
-
-保持时间用于指示我们的节点应将文件或大头针保持多少个月。 免费帐户的最大密码时间限制为1个月，非免费帐户的最大密码时间限制为2年。
+保留时间控制节点对文件的固定保存时间。 免费用户的最大时限是1个月，其他用户最长2年。
 
 ## 上传大小
 
-上载文件时，所有帐户的最大文件大小限制为2GB。 加密文件时，免费帐户的最大文件大小限制为275MB，而非免费帐户的最大大小限制为2GB。
+上载一般文件时，所有用户的文件最大支持2GB。 如果使用文件加密，免费用户最大275MB，其他用户还是2GB。
