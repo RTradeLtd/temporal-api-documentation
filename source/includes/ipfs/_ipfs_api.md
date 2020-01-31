@@ -29,8 +29,11 @@
 
 在本文档的所有代码示例中，您将看到`<JWT>`，它指示您应该提供由`POST login`命令生成的 JWT。
 
-<aside class ="success">
-<b>重要提示：</b> JWT tokens 会在24小时后失效。您需要在24小时后调用<b><a href="/account.html#post-login">POST login</a> </b>以生成另一个有效的JWT，或提前使用<b><a href="/account.html#get-refreshed-auth-token">GET refresh auth token</a></b>.
+<aside class="success">
+<b>重要提示：</b>
+  JWT 会在24小时后失效。
+  24小时内可以用<b><a href="/account.html#get-refreshed-auth-token">GET 刷新身份验证</a></b>，
+  超过24小时则需要从新<b><a href="/account.html#post-login"> 登陆</a></b>
 </aside>
 
 ## 通用错误
@@ -40,14 +43,14 @@
 错误代码      |  含义
 ------------ | -------
 <b> 400 </b> |错误 -- 请求在某种程度上无效，失败的原因在响应正文中返回
-<b> 401 </b> |未经授权 -- 无效的身份验证令牌。检查以确保您正确传递了授权令牌。
+<b> 401 </b> |未经授权 -- 身份验证无效。检查以确保您正确传递了授权令牌。
 <b> 402 </b> |需要付款 -- 尝试执行数据存储操作（固定添加，文件添加）且帐户没有足够的信用额度来支付存储费用时，将返回此付款
 <b> 403 </b> |禁止 -- 您无权使用此功能。
 <b> 404 </b> |找不到 -- 找不到资源。
 <b> 500 </b> |服务器错误 -- 在处理期间出现意外错误时返回
 
 
-## 请求验证（400错误代码）
+## 参数验证（400错误代码）
 
 ```json
 {
