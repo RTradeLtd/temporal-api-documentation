@@ -3,11 +3,11 @@
 使用 IPFS API，您可以操作IPFS网络。
 本节提供有关公共 IPFS 网络的使用信息。
 
-我们有Javascript的用法示例，并将很快添加Python和Golang。
+我们有 Javascript 的用法示例，并将很快添加 Python 和 Golang。
 
 您可以在右侧查看代码示例，并切换上面的编程语言。
 
-要访问研发测试API，请使用以下网址：
+要访问研发测试 API，请使用以下网址：
 
 * https://dev.api.temporal.cloud
 
