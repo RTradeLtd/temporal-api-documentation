@@ -1,6 +1,6 @@
 # Lens
 
-## POST search request
+## POST 搜索请求
 
 ```go
 Golang code here.
@@ -43,7 +43,7 @@ handleSearch = (query) => () => {
 };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -64,21 +64,21 @@ handleSearch = (query) => () => {
 
 `https://api.temporal.cloud/v2/lens/search`
 
-Search for a particular file through Lens by providing a required query string. Example of queries are `blockchain` `data storage`.
-There are optional additional search clauses which can effect the results returned.
+使用字符串搜索特定文件。例如 `blockchain` `data storage`。
+可添加一些可选的搜索参数来完善结果。
 
-### Parameters
+### 参数
 
-| Field | Type | Description | Required Parameter  
+| 函数 | 类型 | 描述 | 是否必要
 |-----------|------|----------|------------------------
-| <b>query</b> | String | The search clause | Yes
-| <b>tags</b> | String Array | *to do* | No  
-| <b>categories</b> | String Array | The category to search through (eg, pdf) | No  
-| <b>mime_types</b> | String Array | The mime type to search for (eg, pdf) | No  
-| <b>hashes</b> | String Array | The ipfs hash of the indexed data that must match this query | No  
-| <b>required</b> | String Array | *to do* | No  
+| <b>query</b>| 字串 | 搜索子句 | 是
+| <b>tags</b> | 字串组 | *to do* | 否
+| <b>categories</b> | 字串组 | 要搜索的类别（例如 pdf）| 否
+| <b>mime_types</b> | 字串组 | 搜索的 MIME 类型（例如 pdf）| 否
+| <b>hashes</b> | 字串组 | 必须与此查询匹配的索引数据的 ipfs 哈希| 否
+| <b>required</b> | 字串组 | *to do* | 否
 
-## POST index request
+## POST 索引请求
 
 ```go
 Golang code here.
@@ -122,7 +122,7 @@ handleIndexing = (hash, reindex, type) => {
 };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -137,19 +137,19 @@ handleIndexing = (hash, reindex, type) => {
 
 `https://api.temporal.cloud/v2/lens/index`
 
-Submit a file for indexing to the Lens database.
+提交文件到Lens索引数据库。
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>object_identifier</b> | IPFS Hash | The public hash to submit for indexing.
-| <b>object_type</b> | String | The object type, only `ipld` is supported.
+| <b>object_identifier</b>| IPFS 哈希| 提交到索引的公共哈希。
+| <b>object_type</b> | 字串 | 对象类型，仅支持`ipld`。
 
-### Response (200)
+### 回应（200）
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>name</b> | IPFS Hash | The hash submitted.
-| <b>mimeType</b> | String | The file type submitted.
-| <b>category</b> | String | The category of the file type submitted.
+| <b>hash</b> | IPFS 哈希 | 提交的哈希。
+| <b>mimeType</b> | 字串 | 提交的文件类型。
+| <b>category</b> | 字串 | 提交的文件类型的类别。
