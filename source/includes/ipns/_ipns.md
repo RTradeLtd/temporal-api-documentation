@@ -196,7 +196,7 @@ Lists all IPNS records you've published to public and private networks.
 | Field | Type | Description
 |-----------|------|-------------
 | <b>CreatedAt</b> | DateTime | Time the record was published.
-| <b>CurrentIPFSHash</b> | Bool | <i>The current IPFS hash this record resolves to</i>
+| <b>CurrentIPFSHash</b> | IPFS Hash | <i>The current IPFS hash this record resolves to</i>
 | <b>DeletedAt</b> | DateTime | Time the file was deleted.
 | <b>ID</b> | Int | The unique ID of your upload.
 | <b>IPFSHashes</b> | Array[IPFS Hash] | <i>An array of all IPFS hashes this record has resolved to in the past</i>
