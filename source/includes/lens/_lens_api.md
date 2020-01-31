@@ -1,6 +1,6 @@
 # Lens API
 
-The Lens API is used to perform indexing, and searching of files stored on IPFS through Temporal. Lens is *opt-int*, and available without signing up to Temporal.
+The Lens API is used to perform indexing, and searching of files stored on IPFS through Temporal. Lens is *opt-in*, and available without signing up to Temporal.
 Anything you index is available to the **public** so do not index anything you don't want easily discoverable. The search engine is facilitated through [bleve](https://github.com/blevesearch/bleve), while indexing is performed using a mix of text based analysis, Tesseract-OCR, and Tensorflow.
 
 To access the development API use the following url:
