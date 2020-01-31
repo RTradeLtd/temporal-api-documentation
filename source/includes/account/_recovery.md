@@ -41,7 +41,7 @@ handleForgotUsername = (email) => () => {
 };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -57,9 +57,9 @@ Sends a reminder to the associated e-mail address with the given username. Your 
 Does not require a JWT for authentication. Account must have an activated e-mail address.
 </aside>
 
-### Parameters
+### 回应 (200)
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>email_address</b> | String | The e-mail address associated with your account.
 
@@ -104,7 +104,7 @@ handleForgotPassword = (email) => () => {
 };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -120,9 +120,9 @@ Resets the password for the account with the associated email, sending it via em
 Does not require a JWT for authentication. Account must have an activated e-mail address.
 </aside>
 
-### Parameters
+### 回应 (200)
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>email_address</b> | String | The e-mail address associated with your account.
 
@@ -168,7 +168,7 @@ handleForgotEmail => () => {
 };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {

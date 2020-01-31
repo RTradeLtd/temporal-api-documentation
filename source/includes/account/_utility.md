@@ -37,7 +37,7 @@ xhr.setRequestHeader("Authorization", "Bearer " + Session.get('token'));
 xhr.send(data);
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -88,7 +88,7 @@ xhr.setRequestHeader("Authorization", "Bearer " + Session.get('token'));
 xhr.send(data);
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -117,7 +117,7 @@ Python code here.
 Javascript code here
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```json
 {

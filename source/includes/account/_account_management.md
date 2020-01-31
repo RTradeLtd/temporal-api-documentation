@@ -1,6 +1,6 @@
-# Account Management
+# 用户管理
 
-## POST login
+## POST 登录
 
 ```go
 Golang code here.
@@ -39,7 +39,7 @@ handleLogin = (username, password) => () => {
     };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -53,16 +53,16 @@ handleLogin = (username, password) => () => {
 Validates the provided username and password to generate a JSON Web Token (JWT) used for authentication.
 This token is valid for exactly 24 hours, at which point you will need to generate a new token.
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>username</b> | String | The username.
 | <b>password</b> | String | The associated password.
 
-### Response (200)
+### 回应 (200)
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>expire</b> | DateTime | Time at which the token expires (24 hours).
 | <b>token</b> | String | Value of the JWT.
@@ -111,7 +111,7 @@ handleRegister = (username, password, email) => () => {
     };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -143,17 +143,17 @@ handleRegister = (username, password, email) => () => {
 
 Registers your information for the `POST login` call, which is used to generate the JWT (JSON Web Token) we use for API authentication. The field `status` within the `response` object, is used to display the terms and service URL associated with the API, that will change depending on usage of either the production, or development API. The values of `EmailVerificationToken` and `HashedPassword` are scrubbed before the response is sent.
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>username</b> | String | Your desired username.
 | <b>password</b> | String | Your desired password.
 | <b>email_address</b> | String | An associated e-mail address.
 
-### Response (200)
+### 回应 (200)
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>ID</b> | Int | The unique ID of your registration.
 | <b>CreatedAt</b> | DateTime | Time the account was created.
@@ -218,7 +218,7 @@ handleChangePassword = (oldPassword, newPassword) => () => {
 };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -231,9 +231,9 @@ handleChangePassword = (oldPassword, newPassword) => () => {
 
 Change the password associated with your account.
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>old_password</b> | String | Your old password.
 | <b>new_password</b> | String | Your desired, new password.
@@ -252,7 +252,7 @@ Python code here.
 Javascript code here
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -300,7 +300,7 @@ xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
 xhr.send();
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {

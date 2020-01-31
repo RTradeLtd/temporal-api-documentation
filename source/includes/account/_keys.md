@@ -44,7 +44,7 @@ handleKeyGenerate = (keyName, keyType, keySize) => () => {
 };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -59,10 +59,9 @@ Create an IPFS key with the given parameters.
 
 <aside class="warning"><b>Private keys created are only usable on public IPFS networks. For private networks please use the direct IPFS API through delegator</b></aside>
 
+### 参数
 
-### Parameters
-
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>key_type</b> | String | The type of the key, either `RSA` or `ED25519`.
 | <b>key_size</b> | Int | The size of the key. `RSA` accepts `2048`, `3072`, or `4096` while `ED25519` only accepts `256`.
@@ -108,7 +107,7 @@ handleKeyExport = (keyName) => () => {
 };
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -130,15 +129,15 @@ Exports the mnemonic phrase associated with a given key.
 
 <aside class="warning">Mnemonic phrases for RSA keys are extremely large and can exceed 1,000 words.</aside>
 
-### Parameters
+### 参数
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>name</b> | String | Name of the key to export.
 
-### Response (200)
+### 回应 (200)
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>response</b> | Array[String] | An array of all words in the mnemonic phrase.
 
@@ -183,7 +182,7 @@ xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
 xhr.send();
 ```
 
-> Example Response (200)
+> 回应示例 (200)
 
 ```
 {
@@ -211,9 +210,9 @@ Retrieve all IPFS keys generated through Temporal.
 
 <aside class="warning">Note that <b>key_ids</b> and <b>key_names</b> mirror each other; the first element in <b>key_ids</b> corresponds to the first element in <b>key_names</b>.</aside>
 
-### Response (200)
+### 回应 (200)
 
-| Field | Type | Description
+| 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>key_ids</b> | IPFS Hash | The hash of a key.
 | <b>key_names</b> | String | The name of a key.
