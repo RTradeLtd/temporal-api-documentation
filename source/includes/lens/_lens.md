@@ -150,6 +150,6 @@ Submit a file for indexing to the Lens database.
 
 | Field | Type | Description
 |-----------|------|-------------
-| <b>name</b> | IPFS Hash | The hash submitted.
+| <b>hash</b> | IPFS Hash | The hash submitted.
 | <b>mimeType</b> | String | The file type submitted.
 | <b>category</b> | String | The category of the file type submitted.
