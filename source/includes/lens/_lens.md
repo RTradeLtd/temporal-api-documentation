@@ -71,12 +71,12 @@ handleSearch = (query) => () => {
 
 | 函数 | 类型 | 描述 | 是否必要
 |-----------|------|----------|------------------------
-| <b>query</b>| 字串 | 搜索子句 | 是
-| <b>tags</b> | 字串组 | *to do* | 否
-| <b>categories</b> | 字串组 | 要搜索的类别（例如 pdf）| 否
-| <b>mime_types</b> | 字串组 | 搜索的 MIME 类型（例如 pdf）| 否
-| <b>hashes</b> | 字串组 | 必须与此查询匹配的索引数据的 ipfs 哈希| 否
-| <b>required</b> | 字串组 | *to do* | 否
+| <b>query</b>| 字符串 | 搜索子句 | 是
+| <b>tags</b> | 字符串组 | *to do* | 否
+| <b>categories</b> | 字符串组 | 要搜索的类别（例如 pdf）| 否
+| <b>mime_types</b> | 字符串组 | 搜索的 MIME 类型（例如 pdf）| 否
+| <b>hashes</b> | 字符串组 | 必须与此查询匹配的索引数据的 ipfs 哈希| 否
+| <b>required</b> | 字符串组 | *to do* | 否
 
 ## POST 索引请求
 
@@ -144,12 +144,12 @@ handleIndexing = (hash, reindex, type) => {
 | 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>object_identifier</b>| IPFS 哈希| 提交到索引的公共哈希。
-| <b>object_type</b> | 字串 | 对象类型，仅支持`ipld`。
+| <b>object_type</b> | 字符串 | 对象类型，仅支持`ipld`。
 
 ### 回应（200）
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>hash</b> | IPFS 哈希 | 提交的哈希。
-| <b>mimeType</b> | 字串 | 提交的文件类型。
-| <b>category</b> | 字串 | 提交的文件类型的类别。
+| <b>mimeType</b> | 字符串 | 提交的文件类型。
+| <b>category</b> | 字符串 | 提交的文件类型的类别。

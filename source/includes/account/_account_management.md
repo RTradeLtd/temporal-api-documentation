@@ -34,7 +34,6 @@ handleLogin = (username, password) => () => {
                 }
                 // Error handling here.
             })
-            .catch(error => console.error('#' + error));
 
     };
 ```
@@ -50,22 +49,22 @@ handleLogin = (username, password) => () => {
 
 `https://api.temporal.cloud/v2/auth/login`
 
-Validates the provided username and password to generate a JSON Web Token (JWT) used for authentication.
-This token is valid for exactly 24 hours, at which point you will need to generate a new token.
+验证提供的用户名和密码，以生成用于身份验证的 JSON Web Token（JWT）。
+该令牌的有效期为24小时，之后您需要生成一个新令牌。
 
 ### 参数
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>username</b> | String | The username.
-| <b>password</b> | String | The associated password.
+| <b>username</b> | 字符串 | The username.
+| <b>password</b> | 字符串 | The associated password.
 
 ### 回应 (200)
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>expire</b> | DateTime | Time at which the token expires (24 hours).
-| <b>token</b> | String | Value of the JWT.
+| <b>expire</b> | 日期时间 | Time at which the token expires (24 hours).
+| <b>token</b> | 字符串 | Value of the JWT.
 
 ## POST register
 
@@ -147,32 +146,32 @@ Registers your information for the `POST login` call, which is used to generate 
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>username</b> | String | Your desired username.
-| <b>password</b> | String | Your desired password.
-| <b>email_address</b> | String | An associated e-mail address.
+| <b>username</b> | 字符串 | Your desired username.
+| <b>password</b> | 字符串 | Your desired password.
+| <b>email_address</b> | 字符串 | An associated e-mail address.
 
 ### 回应 (200)
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>ID</b> | Int | The unique ID of your registration.
-| <b>CreatedAt</b> | DateTime | Time the account was created.
-| <b>UpdatedAt</b> | DateTime | Time the account was last updated.
-| <b>DeletedAt</b> | DateTime | Time the account was deleted.
-| <b>Username</b> | String | Your username.
-| <b>EmailAddress</b> | String | Your e-mail address.
-| <b>AccountEnabled</b> | Bool | Your account status.
-| <b>EmailEnabled</b> | Bool | Your e-mail notification status.
-| <b>EmailVerificationToken</b> | String | Sent via e-mail to confirm association.
-| <b>AdminAccess</b> | Bool | Your admin status.
-| <b>HashedPassword</b> | String | The hash of your password
-| <b>Free</b> | Bool | Indicates if the account is free tier 
-| <b>Credits</b> | Int | Your starting credits.
-| <b>CustomerObjectHash</b> | String | IPLD object of your uploads (not yet implemented)
-| <b>IPFSKeyNames</b> | Array[String] | IPFS key names associated with your account.
-| <b>IPFSKeyIDs</b> | Array[String] | IPFS key values associated with your account.
-| <b>IPFSNetworkNames</b> | Array[String] | Private IPFS networks associated with your account.
-| <b>Status</b> | String | Terms And Service link
+| <b>ID</b> | 整数 | The unique ID of your registration.
+| <b>CreatedAt</b> | 日期时间 | Time the account was created.
+| <b>UpdatedAt</b> | 日期时间 | Time the account was last updated.
+| <b>DeletedAt</b> | 日期时间 | Time the account was deleted.
+| <b>Username</b> | 字符串 | Your username.
+| <b>EmailAddress</b> | 字符串 | Your e-mail address.
+| <b>AccountEnabled</b> | 布尔 | Your account status.
+| <b>EmailEnabled</b> | 布尔 | Your e-mail notification status.
+| <b>EmailVerificationToken</b> | 字符串 | Sent via e-mail to confirm association.
+| <b>AdminAccess</b> | 布尔 | Your admin status.
+| <b>HashedPassword</b> | 字符串 | The hash of your password
+| <b>Free</b> | 布尔 | Indicates if the account is free tier 
+| <b>Credits</b> | 整数 | Your starting credits.
+| <b>CustomerObjectHash</b> | 字符串 | IPLD object of your uploads (not yet implemented)
+| <b>IPFSKeyNames</b> | 数组[字符串] | IPFS key names associated with your account.
+| <b>IPFSKeyIDs</b> | 数组[字符串] | IPFS key values associated with your account.
+| <b>IPFSNetworkNames</b> | 数组[字符串] | Private IPFS networks associated with your account.
+| <b>Status</b> | 字符串 | Terms And Service link
 
 ## POST password change
 
@@ -235,8 +234,8 @@ Change the password associated with your account.
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>old_password</b> | String | Your old password.
-| <b>new_password</b> | String | Your desired, new password.
+| <b>old_password</b> | 字符串 | Your old password.
+| <b>new_password</b> | 字符串 | Your desired, new password.
 
 ## POST upgrade account
 

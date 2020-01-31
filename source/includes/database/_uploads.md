@@ -89,11 +89,11 @@ xhr.send();
 | <b>Hash</b> | IPFS 哈希 |  链接内容关的哈希值。
 | <b>HoldTimeInMonths</b> | 整数 | 固定的月数。
 | <b>ID</b> | 整数 |  您上传的记录编号。
-| <b>NetworkName</b> | 字串 | 发布记录的网络名称 (`public` = 公共网络)。
-| <b>Type</b> | 字串 | 您上传的文件类型。
+| <b>NetworkName</b> | 字符串 | 发布记录的网络名称 (`public` = 公共网络)。
+| <b>Type</b> | 字符串 | 您上传的文件类型。
 | <b>UpdatedAt</b> | 日期时间 | 文件的最新更新日期。
-| <b>Username</b> | 字串 | 上传文件的用户名（<i>就是您</i>）。
-| <b>Usernames</b> | 组[字串] |  列出有权访问文件的用户（<i>只用于专用网络</i>）。
+| <b>Username</b> | 字符串 | 上传文件的用户名（<i>就是您</i>）。
+| <b>Usernames</b> |数组[字符串] |  列出有权访问文件的用户（<i>只用于专用网络</i>）。
 
 ## GET 上传的加密文件
 
@@ -184,8 +184,8 @@ xhr.send();
 | <b>Hash</b> | IPFS 哈希 |  链接内容关的哈希值。
 | <b>HoldTimeInMonths</b> | 整数 | 固定的月数。
 | <b>ID</b> | 整数 |  您上传的记录编号。
-| <b>NetworkName</b> | 字串 | 发布记录的网络名称 (`public` = 公共网络)。
-| <b>Type</b> | 字串 | 您上传的文件类型。
+| <b>NetworkName</b> | 字符串 | 发布记录的网络名称 (`public` = 公共网络)。
+| <b>Type</b> | 字符串 | 您上传的文件类型。
 | <b>UpdatedAt</b> | 日期时间 | 文件的最新更新日期。
-| <b>Username</b> | 字串 | 上传文件的用户名（<i>就是您</i>）。
-| <b>Usernames</b> | 组[字串] |  列出有权访问文件的用户（<i>只用于专用网络</i>）。
+| <b>Username</b> | 字符串 | 上传文件的用户名（<i>就是您</i>）。
+| <b>Usernames</b> |数组[字符串] |  列出有权访问文件的用户（<i>只用于专用网络</i>）。

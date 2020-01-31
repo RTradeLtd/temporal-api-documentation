@@ -69,8 +69,8 @@ handleUpload = (file, holdtime) => {
 
 | 函数 | 类型 | 描述
 |-------|------|-------------
-| <b>passphrase</b>| 字串 | 用于加密上传的可选参数。
-| <b>hash_type</b> | 字串 | 指定要使用的 multihash 哈希公式，例如 sha3-256
+| <b>passphrase</b>| 字符串 | 用于加密上传的可选参数。
+| <b>hash_type</b> | 字符串 | 指定要使用的 multihash 哈希公式，例如 sha3-256
 
 ## POST 哈希固定
 
@@ -132,7 +132,7 @@ handlePinFile = (ipfsHash, holdTime) => () => {
 |-----------|------|-------------
 | <b>hash</b>  | IPFS哈希| 要固定的哈希值。
 | <b>hold_time</b> | 整数 | 固定哈希值的月数。
-| <b>file_name</b> | 字串 | 可选的文件名，用于命名固定。
+| <b>file_name</b> | 字符串 | 可选的文件名，用于命名固定。
 
 ## POST 增加固定时间
 
@@ -232,14 +232,14 @@ handlePubSub = (message, topic) => () => {
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>message</b> | 字串 | 要发布的消息。
+| <b>message</b> | 字符串 | 要发布的消息。
 
 ### 回应（200）
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>message</b> | 字串 | 您发布的消息。
-| <b>topic</b> | 字串 | 您发布到的主题。
+| <b>message</b> | 字符串 | 您发布的消息。
+| <b>topic</b> | 字符串 | 您发布到的主题。
 
 ## GET object stats
 

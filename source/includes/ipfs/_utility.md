@@ -66,8 +66,8 @@ handleDownload = (ipfsHash, networkName) => () => {
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>network_name</b> | 字串| 专用网络名称（可选）
-| <b>decrypt_key</b> | 字串| 解密密码（可选）
+| <b>network_name</b> | 字符串| 专用网络名称（可选）
+| <b>decrypt_key</b> | 字符串| 解密密码（可选）
 
 ## POST 束移
 
@@ -131,10 +131,10 @@ handleBeam = (sourceNetwork, destinationNetwork, hash, passphrase) => () => {
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>source_network</b> | 字串| 读取内容的网络。
-| <b>destination_network</b> | 字串| 要复制到的网络。
+| <b>source_network</b> | 字符串| 读取内容的网络。
+| <b>destination_network</b> | 字符串| 要复制到的网络。
 | <b>content_hash</b> | IPFS哈希| 内容的哈希值。
-| <b>passphrase</b>* | 字串| 可选，使用密码来加密内容。
+| <b>passphrase</b>* | 字符串| 可选，使用密码来加密内容。
 
 <aside class="warning">
 *可选参数。 如果提供密码，则内容将在传输过程中加密，然后再上传到目标网络

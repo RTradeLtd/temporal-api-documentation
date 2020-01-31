@@ -63,9 +63,9 @@ Create an IPFS key with the given parameters.
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>key_type</b> | String | The type of the key, either `RSA` or `ED25519`.
-| <b>key_size</b> | Int | The size of the key. `RSA` accepts `2048`, `3072`, or `4096` while `ED25519` only accepts `256`.
-| <b>key_name</b> | String | The name of the key.
+| <b>key_type</b> | 字符串 | The type of the key, either `RSA` or `ED25519`.
+| <b>key_size</b> | 整数 | The size of the key. `RSA` accepts `2048`, `3072`, or `4096` while `ED25519` only accepts `256`.
+| <b>key_name</b> | 字符串 | The name of the key.
 
 ## GET export ipfs key
 
@@ -133,13 +133,13 @@ Exports the mnemonic phrase associated with a given key.
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>name</b> | String | Name of the key to export.
+| <b>name</b> | 字符串 | Name of the key to export.
 
 ### 回应 (200)
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>response</b> | Array[String] | An array of all words in the mnemonic phrase.
+| <b>response</b> | 数组[字符串] | An array of all words in the mnemonic phrase.
 
 ## GET ipfs keys
 
@@ -215,4 +215,4 @@ Retrieve all IPFS keys generated through Temporal.
 | 函数 | 类型 | 描述
 |-----------|------|-------------
 | <b>key_ids</b> | IPFS Hash | The hash of a key.
-| <b>key_names</b> | String | The name of a key.
+| <b>key_names</b> | 字符串 | The name of a key.

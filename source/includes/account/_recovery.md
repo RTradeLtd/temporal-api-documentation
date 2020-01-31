@@ -61,7 +61,7 @@ Does not require a JWT for authentication. Account must have an activated e-mail
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>email_address</b> | String | The e-mail address associated with your account.
+| <b>email_address</b> | 字符串 | The e-mail address associated with your account.
 
 ## POST forgot password
 
@@ -124,7 +124,7 @@ Does not require a JWT for authentication. Account must have an activated e-mail
 
 | 函数 | 类型 | 描述
 |-----------|------|-------------
-| <b>email_address</b> | String | The e-mail address associated with your account.
+| <b>email_address</b> | 字符串 | The e-mail address associated with your account.
 
 ## POST forgot email
 
