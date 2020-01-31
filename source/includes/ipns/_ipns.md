@@ -200,11 +200,11 @@ xhr.send();
 | <b>DeletedAt</b> | 日期时间 | 文件删除的时间，或者`null`。
 | <b>ID</b> | 整数 | 您上传的记录编号。
 | <b>IPFSHashes</b> | 组[IPFS 哈希] | <i>此记录过去解析的所有 IPFS 哈希。</i>
-| <b>IPNSHash</b> | IPFS 哈希 | <i>用于发布此记录的公共密钥的哈希</i>
-| <b>Key</b> | 字串 | 使用的IPFS记录名称
-| <b>LifeTime</b> | 字串 | 内容的固定月数
-| <b>NetworkName</b> | 字串 | 发布记录的网络名称 (`public` = 公共网络).
-| <b>Sequence</b> | 整数 | <i>当前的版本号。 从0开始以每次发布加1。</i>
+| <b>IPNSHash</b> | IPFS 哈希 | <i>用于发布此记录的公共密钥的哈希。</i>
+| <b>Key</b> | 字串 | 使用的IPFS记录名称。
+| <b>LifeTime</b> | 字串 | 内容的固定月数。
+| <b>NetworkName</b> | 字串 | 发布记录的网络名称 (`public` = 公共网络)。
+| <b>Sequence</b> | 整数 | <i>当前的版本号，从0开始以每次发布加1。</i>
 | <b>TTL</b> | 字串 | 生存时间。
-| <b>UpdatedAt</b> | 日期时间 | 文件上次更新的时间。
+| <b>UpdatedAt</b> | 日期时间 | 文件的最新更新日期。
 | <b>Username</b> | 字串 | 发布记录的用户名 （<i>就是您</i>）。
