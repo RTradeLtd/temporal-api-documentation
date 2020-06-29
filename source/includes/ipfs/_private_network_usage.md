@@ -46,7 +46,7 @@ handleDownload = (ipfsHash, networkName) => () => {
         }
     }.bind(this));
 
-    xhr.open("POST", "https://api.temporal.cloud:6767/v2/ipfs/utils/download/" + ipfsHash);
+    xhr.open("POST", "https://api.temporal.cloud/v2/ipfs/utils/download/" + ipfsHash);
     xhr.setRequestHeader("Cache-Control", "no-cache");
     xhr.setRequestHeader("Authorization", "Bearer " + <JWT>);
     xhr.send(data); // Use xhr.send() if not supplying a private networkName.
